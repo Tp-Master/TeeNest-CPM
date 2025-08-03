@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -149,7 +148,37 @@
     .close-btn:hover {
       background: #0097a7;
     }
+    .adsbox {
+      background: url("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js") no-repeat;
+      height: 1px;
+      width: 1px;
+      position: absolute;
+      left: -9999px;
+      top: -9999px;
+    }
   </style>
+
+  <!-- Monetag Ads -->
+  <script>(s=>{s.dataset.zone='9648025',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+  <script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('gizokraijaw.net',9648021,document.createElement('script'))</script>
+  <script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('groleegni.net',9647973,document.createElement('script'))</script>
+  <script>(function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('vemtoutcheeg.com',9647972,document.createElement('script'))</script>
+
+  <!-- Adblock/VPN Detection -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const bait = document.createElement('div');
+      bait.className = 'adsbox';
+      document.body.appendChild(bait);
+      setTimeout(() => {
+        if (!bait.offsetHeight || !bait.offsetWidth) {
+          alert("Ads are blocked or VPN detected. Please disable them to continue.");
+          window.location.href = "https://google.com"; // change to your redirect if needed
+        }
+        bait.remove();
+      }, 1500);
+    });
+  </script>
 </head>
 <body>
 
