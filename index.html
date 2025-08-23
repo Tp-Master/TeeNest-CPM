@@ -97,6 +97,24 @@
       background: linear-gradient(135deg, #009688, #388e3c);
       transform: scale(1.05);
     }
+    .small-btn {
+      padding: 8px 12px;
+      font-size: 0.85em;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #00bcd4, #4caf50);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      display: inline-block;
+      margin: 5px auto;
+      cursor: pointer;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+    }
+    .small-btn:hover {
+      background: linear-gradient(135deg, #cc0000, #990000);
+      transform: scale(1.05);
+    }
     .info, .disclaimer {
       margin-top: 40px;
       font-size: 1em;
@@ -187,6 +205,11 @@
 
 <header>TeeNest-CPM - Free CPM Account</header>
 
+<!-- Small Account list button below header -->
+<div style="text-align: center;">
+  <a href="https://carparkingmultiplayer.co.za/Accounts%20List.html" target="_blank" class="small-btn">Account list</a>
+</div>
+
 <div class="container">
   <div class="message">
     Pick the right button below to unlock your account.<br/>
@@ -220,6 +243,7 @@
 </div>
 
 <script>
+  // Original 6 button labels
   const labels = [
     "Get Free CPM Account",
     "Open Garage Loot",
@@ -229,6 +253,7 @@
     "Get Spare Login"
   ];
 
+  // Corresponding links with one "popup"
   const links = [
     "https://sawutser.top/4/9261402",
     "https://sawutser.top/4/9261402",
@@ -238,6 +263,7 @@
     "https://sawutser.top/4/9261402"
   ];
 
+  // Shuffle array helper function
   function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
