@@ -59,10 +59,20 @@
       margin-bottom: 12px;
       border: 1px solid #ddd;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: auto; /* FIX: prevent Chrome bolding */
+      font-size: 16px !important; /* force consistent font */
+      font-weight: normal !important; /* force consistent weight */
     }
     .account:hover {
       transform: scale(1.01);
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .account .toggle, 
+    .account .toggle button, 
+    .account .toggle .password {
+      font-size: 16px !important;
+      font-weight: normal !important;
+      cursor: pointer; /* keep button clickable */
     }
     .password {
       display: none;
@@ -117,6 +127,44 @@
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* BUY ACCOUNT Button */
+    #buy-now-button {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        background-color: #ff4b4b;
+        color: white;
+        padding: 6px 10px;
+        font-size: 13px;
+        font-weight: bold;
+        border-radius: 4px;
+        text-decoration: none;
+        z-index: 9999;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        transition: background-color 0.3s;
+    }
+    #buy-now-button:hover {
+        background-color: #e03a3a;
+    }
+
+    /* Show More Button */
+    #show-more-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 8px 16px;
+      font-size: 14px;
+      background: #0077cc;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    #show-more-btn:hover {
+      background: #005fa3;
+    }
+
   </style>
 
   <!-- Monetag Ads Code (in head for proper loading) -->
@@ -125,6 +173,13 @@
   <script>(function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('vemtoutcheeg.com',9648019,document.createElement('script'))</script>
 </head>
 <body>
+
+<!-- BUY ACCOUNT Button -->
+<a href="https://digitalhustlekit.gumroad.com/l/UltimateAll-In-OneCPMPackage?_gl=1*tmoh10*_ga*MTgyOTY2OTM4NS4xNzU2OTA4MDMx*_ga_6LJN6D94N6*czE3NTY5MDgwMzEkbzEkZzEkdDE3NTY5MDgwOTckajU5JGwwJGgw" 
+   target="_blank" 
+   id="buy-now-button">
+   BUY ACCOUNT
+</a>
 
 <div id="adblock-warning">⚠️ Please disable your ad blocker to access free CPM accounts. Thank you for supporting Cpm_Plug.</div>
 
@@ -146,87 +201,9 @@
   </ul>
 
   <h3>📂 Account List</h3>
+  <div id="accounts-container"></div>
+  <button id="show-more-btn">Show More Accounts</button>
 
-  <div class="account">
-    📧Email: CpmPlug1@gmail.com #1
-    <div class="toggle">
-      <button onclick="togglePassword(this)">Show Password</button>
-      <div class="password">🔑Password: 112233</div>
-    </div>
-  </div>
-
- <div class="account">
-    📧Email: CpmPlug02@gmail.com #2
-    <div class="toggle">
-      <button onclick="togglePassword(this)">Show Password</button>
-      <div class="password">🔑Password: 446699</div>
-    </div>
-  </div>
-
-  <div class="account">
-    📧Email: CpmPlug3@gmail.com #3
-    <div class="toggle">
-      <button onclick="togglePassword(this)">Show Password</button>
-      <div class="password">🔑Password: 667799</div>
-    </div>
-  </div>
-
- <div class="account">
-    📧Email: CpmPlug4@gmail.com #4
-    <div class="toggle">
-      <button onclick="togglePassword(this)">Show Password</button>
-      <div class="password">🔑Password: 221144</div>
-    </div>
-  </div>
-
-<div class="account">
-    📧Email: CpmPlug5@gmail.com #5
-    <div class="toggle">
-      <button onclick="togglePassword(this)">Show Password</button>
-      <div class="password">🔑Password: 667722</div>
-    </div>
-  </div>
-
-  <div class="account">
-    📧Email: CpmPlug6@gmail.com #6
-    <div class="toggle">
-      <button onclick="togglePassword(this)">Show Password</button>
-      <div class="password">🔑Password: 555222</div>
-    </div>
-  </div>
-
-   <div class="account">
-    📧Email: CpmPlug7@gmail.com #7
-    <div class="toggle">
-      <button onclick="togglePassword(this)">Show Password</button>
-      <div class="password">🔑Password: 442233</div>
-    </div>
-  </div>
-
-   <div class="account">
-    📧Email: CpmPlug8@gmail.com #8
-    <div class="toggle">
-      <button onclick="togglePassword(this)">Show Password</button>
-      <div class="password">🔑Password: 777555</div>
-    </div>
-  </div>
-
-<div class="account">
-    📧Email: CpmPlug9@gmail.com #9
-    <div class="toggle">
-      <button onclick="togglePassword(this)">Show Password</button>
-      <div class="password">🔑Password: 883366</div>
-    </div>
-  </div>
-
-  <div class="account">
-    📧Email: CpmPlug10@gmail.com #10
-    <div class="toggle">
-      <button onclick="togglePassword(this)">Show Password</button>
-      <div class="password">🔑Password: 112233</div>
-    </div>
-  </div>
-  
   <h3>💬 Need Help or Want to Request New Drops?</h3>
   <p>DM us on Instagram: <a href="https://instagram.com/Cpm_Plug" target="_blank">@Cpm_Plug</a></p>
   <p>Or check our latest videos on YouTube: <a href="https://youtube.com/@Cpm_Plug-p8q?si=CYgnfZCO6hf5ZxYO" target="_blank">CpmPlug YouTube</a></p>
@@ -245,8 +222,71 @@
 </main>
 
 <script>
+  const allAccounts = [
+    {email: 'CpmPlug1@gmail.com', password: '112233'},
+    {email: 'CpmPlug02@gmail.com', password: '446699'},
+    {email: 'CpmPlug3@gmail.com', password: '667799'},
+    {email: 'CpmPlug4@gmail.com', password: '221144'},
+    {email: 'CpmPlug5@gmail.com', password: '667722'},
+    {email: 'CpmPlug6@gmail.com', password: '555222'},
+    {email: 'CpmPlug7@gmail.com', password: '442233'},
+    {email: 'CpmPlug8@gmail.com', password: '777555'},
+    {email: 'CpmPlug9@gmail.com', password: '883366'},
+    {email: 'CpmPlug10@gmail.com', password: '112233'}
+  ];
+
+  const container = document.getElementById('accounts-container');
+  const showMoreBtn = document.getElementById('show-more-btn');
+  const chunkSize = 5;
+  let currentIndex = 0;
+
+  function renderAccounts() {
+    const slice = allAccounts.slice(currentIndex, currentIndex + chunkSize);
+    slice.forEach(acc => {
+      const div = document.createElement('div');
+      div.classList.add('account');
+
+      const emailText = document.createTextNode(`📧Email: ${acc.email}`);
+      div.appendChild(emailText);
+
+      const toggleDiv = document.createElement('div');
+      toggleDiv.classList.add('toggle');
+
+      const btn = document.createElement('button');
+      btn.innerText = 'Show Password';
+      btn.onclick = () => togglePassword(btn);
+
+      const passwordDiv = document.createElement('div');
+      passwordDiv.classList.add('password');
+      passwordDiv.innerText = `🔑Password: ${acc.password}`;
+
+      toggleDiv.appendChild(btn);
+      toggleDiv.appendChild(passwordDiv);
+      div.appendChild(toggleDiv);
+
+      container.appendChild(div);
+    });
+
+    currentIndex += chunkSize;
+
+    if (currentIndex >= allAccounts.length) {
+      showMoreBtn.style.display = 'none';
+    }
+  }
+
+  showMoreBtn.addEventListener('click', renderAccounts);
+  renderAccounts();
+
   function togglePassword(button) {
     const passwordDiv = button.nextElementSibling;
+
+    document.querySelectorAll('.password').forEach(p => {
+      if (p !== passwordDiv) {
+        p.style.display = 'none';
+        if (p.previousElementSibling) p.previousElementSibling.innerText = 'Show Password';
+      }
+    });
+
     if (passwordDiv.style.display === "none" || passwordDiv.style.display === "") {
       passwordDiv.style.display = "block";
       button.innerText = "Hide Password";
@@ -256,7 +296,6 @@
     }
   }
 
-  // Adblock detection using bait element
   window.addEventListener('load', () => {
     setTimeout(() => {
       const bait = document.getElementById('ad-bait');
