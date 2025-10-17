@@ -5,51 +5,201 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Cpm_Plug Free Accounts</title>
 <style>
-  body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: linear-gradient(to bottom, #f7f8fa, #e8ebf0); color: #222; }
-  header { background: #000; color: #fff; padding: 15px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
-  header img { max-width: 100%; height: auto; border-radius: 8px; }
-  main { padding: 20px; max-width: 800px; margin: 30px auto; background: white; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); animation: fadeIn 0.6s ease-in-out; }
-  h1 { text-align: center; font-size: 28px; color: #333; margin-bottom: 15px; }
-  h3 { color: #444; margin-top: 25px; }
-  p, li { font-size: 16px; line-height: 1.6; }
-  ul { padding-left: 20px; }
-  .toggle { margin-top: 8px; }
-  .account { background: #f3f6fa; padding: 15px; border-radius: 8px; margin-bottom: 12px; border: 1px solid #ddd; transition: transform 0.2s ease, box-shadow 0.2s ease; font-size:16px !important; font-weight: normal !important; cursor: auto; }
-  .account:hover { transform: scale(1.01); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-  .account .toggle, .account .toggle button, .account .toggle .password { font-size:16px !important; font-weight: normal !important; cursor:pointer; }
-  .password { display:none; margin-top:5px; font-weight:bold; color:#0077cc; }
-  button { padding:6px 14px; font-size:14px; background:#0077cc; color:white; border:none; border-radius:4px; cursor:pointer; transition: background 0.2s ease; }
-  button:hover { background:#005fa3; }
-  .notes { font-size:14px; background:#fff8e6; padding:12px; border-left:4px solid #f90; margin-top:20px; border-radius:4px; }
-  #adblock-warning { display:none; position:fixed; z-index:99999; background:white; color:red; top:0; left:0; width:100%; height:100%; text-align:center; padding-top:20%; font-size:20px; font-weight:bold; }
-  a { color:#0077cc; text-decoration:none; } a:hover { text-decoration:underline; }
-  @keyframes fadeIn { from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
+  body {
+    margin: 0;
+    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+    background: #0f172a;
+    color: #f5f5f5;
+  }
 
-  /* BUY ACCOUNT Button */
-  #buy-now-button { position:fixed; top:10px; right:10px; background-color:#ff4b4b; color:white; padding:6px 10px; font-size:13px; font-weight:bold; border-radius:4px; text-decoration:none; z-index:9999; box-shadow:0 2px 6px rgba(0,0,0,0.2); transition:background-color 0.3s; }
-  #buy-now-button:hover { background-color:#e03a3a; }
+  header {
+    background: #1e293b;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 15px rgba(255, 215, 0, 0.15);
+    border-radius: 0 0 16px 16px;
+  }
 
-  /* Show More Button */
-  #show-more-btn { display:block; margin:20px auto; padding:8px 16px; font-size:14px; background:#0077cc; color:#fff; border:none; border-radius:4px; cursor:pointer; transition: background 0.2s ease; }
-  #show-more-btn:hover { background:#005fa3; }
+  header img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+  }
+
+  /* Navigation menu below header */
+  nav {
+    background: #1e293b;
+    border-radius: 0 0 16px 16px;
+    padding: 12px 0;
+    text-align: center;
+    box-shadow: 0 2px 15px rgba(255, 215, 0, 0.15);
+    margin-top: 10px;
+  }
+
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    gap: 40px;
+  }
+
+  nav ul li a {
+    color: #facc15;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s;
+  }
+
+  nav ul li a:hover {
+    color: #fbbf24;
+  }
+
+  main {
+    padding: 20px;
+    max-width: 850px;
+    margin: 40px auto;
+    background: #1e293b;
+    border-radius: 16px;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.1);
+    animation: fadeIn 0.6s ease-in-out;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #facc15;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+  }
+
+  h3 {
+    color: #fbbf24;
+    margin-top: 25px;
+  }
+
+  p, li {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #cbd5e1;
+  }
+
+  ul {
+    padding-left: 20px;
+  }
+
+  .account {
+    background: #0f172a;
+    padding: 15px;
+    border-radius: 16px;
+    margin-bottom: 14px;
+    border: 1px solid rgba(255, 215, 0, 0.25);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: auto;
+  }
+
+  .account:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 18px rgba(255, 215, 0, 0.2);
+  }
+
+  button {
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  button:hover {
+    opacity: 0.85;
+  }
+
+  .password {
+    display: none;
+    margin-top: 8px;
+    font-weight: bold;
+    color: #fbbf24;
+    font-size: 16px;
+  }
+
+  .notes {
+    font-size: 14px;
+    background: #1e293b;
+    padding: 12px;
+    border-left: 4px solid #facc15;
+    margin-top: 25px;
+    border-radius: 8px;
+    color: #cbd5e1;
+  }
+
+  #show-more-btn {
+    display: block;
+    margin: 25px auto;
+    padding: 10px 18px;
+    font-size: 15px;
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  #show-more-btn:hover {
+    opacity: 0.85;
+  }
+
+  #adblock-warning {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    background: #1e293b;
+    color: #f87171;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding-top: 20%;
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 </style>
 
 <!-- Monetag Ads Code -->
 <script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('gizokraijaw.net',9648021,document.createElement('script'))</script>
 <script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('groleegni.net',9649325,document.createElement('script'))</script>
 <script>(function(s){s.dataset.zone='9648025',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
-</head>
 
 <body>
-
-<a href="https://digitalhustlekit.gumroad.com/l/UltimateAll-In-OneCPMPackage?_gl=1*tmoh10*_ga*MTgyOTY2OTM4NS4xNzU2OTA4MDMx*_ga_6LJN6D94N6*czE3NTY5MDgwMzEkbzEkZzEkdDE3NTY5MDgwOTckajU5JGwwJGgw" 
-target="_blank" id="buy-now-button">BUY ACCOUNT</a>
 
 <div id="adblock-warning">⚠️ Please disable your ad blocker to access free CPM accounts. Thank you for supporting Cpm_Plug.</div>
 
 <header>
   <img src="header.jpg" alt="Cpm_Plug Header" />
 </header>
+
+<!-- Navigation menu below header -->
+<nav>
+  <ul>
+    <li><a href="https://digitalhustlekit.gumroad.com/l/UltimateAll-In-OneCPMPackage?_gl=1*tmoh10*_ga*MTgyOTY2OTM4NS4xNzU2OTA4MDMx*_ga_6LJN6D94N6*czE3NTY5MDgwMzEkbzEkZzEkdDE3NTY5MDgwOTckajU5JGwwJGgw" target="_blank">Buy Account</a></li>
+    <li><a href="https://carparkingmultiplayer.co.za/CPMPlug%20-%20Exclusive%20Accounts.htm" target="_blank">VIP Account</a></li>
+  </ul>
+</nav>
 
 <main>
 <h1>🚗 Welcome to Cpm Free Account Page</h1>
@@ -79,119 +229,116 @@ Respect others – many fans want to use these accounts too.<br />
 If all accounts are used, stay tuned for the next video.
 </div>
 
-<p>Thanks for supporting Cpm_Plug.!</p>
+<p>Thanks for supporting Cpm_Plug!</p>
 
 <div id="ad-bait" style="width: 1px; height: 1px; position: absolute; left: -10000px; top: -10000px;"></div>
 </main>
 
 <script>
-  // =========================
-  // Accounts: Just add here
-  // =========================
-  const allAccounts = [
-    {email: 'CpmPlug1@gmail.com #1', password: '112233'},
-    {email: 'CpmPlug02@gmail.com #2', password: '446699'},
-    {email: 'CpmPlug3@gmail.com #3', password: '667799'},
-    {email: 'CpmPlug4@gmail.com #4', password: '221144'},
-    {email: 'CpmPlug5@gmail.com #5', password: '667722'},
-    {email: 'CpmPlug6@gmail.com #6', password: '555222'},
-    {email: 'CpmPlug7@gmail.com #7', password: '442233'},
-    {email: 'CpmPlug8@gmail.com #8', password: '777555'},
-    {email: 'CpmPlug9@gmail.com #9', password: '883366'},
-    {email: 'CpmPlug10@gmail.com #10', password: '112233'},
-    {email: 'CpmPlug11@gmail.com #11', password: '998877'},
-    {email: 'CpmPlug12@gmail.com #12', password: '677776'},
-    {email: 'CpmPlug13@gmail.com #13', password: '881122'},
-    {email: 'CpmPlug14@gmail.com #14', password: '449922'},
-    {email: 'CpmPlug15@gmail.com #15', password: '333666'},
-    {email: 'CpmPlug16@gmail.com #16', password: '991133'},
-    {email: 'CpmPlug17@gmail.com #17', password: '445577'},
-    {email: 'CpmPlug18@gmail.com #18', password: '889933'},
-    {email: 'CpmPlug19@gmail.com #19', password: '555222'},
-    {email: 'CpmPlug20@gmail.com #20', password: '226644'},
-    {email: 'CpmPlug21@gmail.com #21', password: '226633'},
-    {email: 'CpmPlug22@gmail.com #22', password: '449933'},
-    {email: 'CpmPlug23@gmail.com #23', password: '998877'},
-    {email: 'CpmPlug24@gmail.com #24', password: '336633'},
-    {email: 'CpmPlug25@gmail.com #25', password: '555888'},
-    {email: 'CpmPlug26@gmail.com #26', password: '229944'},
-    {email: 'CpmPlug27@gmail.com #27', password: '377773'},
-    {email: 'CpmPlug28@gmail.com #28', password: '443355'},
-    {email: 'CpmPlug29@gmail.com #29', password: '778899'},
-    {email: 'CpmPlug30@gmail.com #30', password: '887711'},
-    {email: 'CpmPlug031@gmail.com #31', password: '622226'} // <-- easy add
-    // Just keep adding here up to 2000+
-  ];
+const allAccounts = [
+  {email: 'CpmPlug1@gmail.com #1', password: '112233'},
+  {email: 'CpmPlug02@gmail.com #2', password: '446699'},
+  {email: 'CpmPlug3@gmail.com #3', password: '667799'},
+  {email: 'CpmPlug4@gmail.com #4', password: '221144'},
+  {email: 'CpmPlug5@gmail.com #5', password: '667722'},
+  {email: 'CpmPlug6@gmail.com #6', password: '555222'},
+  {email: 'CpmPlug7@gmail.com #7', password: '442233'},
+  {email: 'CpmPlug8@gmail.com #8', password: '777555'},
+  {email: 'CpmPlug9@gmail.com #9', password: '883366'},
+  {email: 'CpmPlug10@gmail.com #10', password: '112233'},
+  {email: 'CpmPlug11@gmail.com #11', password: '998877'},
+  {email: 'CpmPlug12@gmail.com #12', password: '677776'},
+  {email: 'CpmPlug13@gmail.com #13', password: '881122'},
+  {email: 'CpmPlug14@gmail.com #14', password: '449922'},
+  {email: 'CpmPlug15@gmail.com #15', password: '333666'},
+  {email: 'CpmPlug16@gmail.com #16', password: '991133'},
+  {email: 'CpmPlug17@gmail.com #17', password: '445577'},
+  {email: 'CpmPlug18@gmail.com #18', password: '889933'},
+  {email: 'CpmPlug19@gmail.com #19', password: '555222'},
+  {email: 'CpmPlug20@gmail.com #20', password: '226644'},
+  {email: 'CpmPlug21@gmail.com #21', password: '226633'},
+  {email: 'CpmPlug22@gmail.com #22', password: '449933'},
+  {email: 'CpmPlug23@gmail.com #23', password: '998877'},
+  {email: 'CpmPlug24@gmail.com #24', password: '336633'},
+  {email: 'CpmPlug25@gmail.com #25', password: '555888'},
+  {email: 'CpmPlug26@gmail.com #26', password: '229944'},
+  {email: 'CpmPlug27@gmail.com #27', password: '377773'},
+  {email: 'CpmPlug28@gmail.com #28', password: '443355'},
+  {email: 'CpmPlug29@gmail.com #29', password: '778899'},
+  {email: 'CpmPlug30@gmail.com #30', password: '887711'},
+  {email: 'CpmPlug031@gmail.com #31', password: '622226'},
+  {email: 'CpmPlug32@gmail.com #32', password: '115522'}
+];
 
-  const container = document.getElementById('accounts-container');
-  const showMoreBtn = document.getElementById('show-more-btn');
-  const chunkSize = 5; // can be any number
-  let currentIndex = 0;
+const container = document.getElementById('accounts-container');
+const showMoreBtn = document.getElementById('show-more-btn');
+const chunkSize = 5;
+let currentIndex = 0;
 
-  function renderAccounts() {
-    const slice = allAccounts.slice(currentIndex, currentIndex + chunkSize);
-    slice.forEach(acc => {
-      const div = document.createElement('div');
-      div.classList.add('account');
+function renderAccounts() {
+  const slice = allAccounts.slice(currentIndex, currentIndex + chunkSize);
+  slice.forEach(acc => {
+    const div = document.createElement('div');
+    div.classList.add('account');
 
-      const emailText = document.createTextNode(`📧Email: ${acc.email}`);
-      div.appendChild(emailText);
+    const emailText = document.createTextNode(`📧Email: ${acc.email}`);
+    div.appendChild(emailText);
 
-      const toggleDiv = document.createElement('div');
-      toggleDiv.classList.add('toggle');
+    const toggleDiv = document.createElement('div');
+    toggleDiv.classList.add('toggle');
 
-      const btn = document.createElement('button');
-      btn.innerText = 'Show Password';
-      btn.onclick = () => togglePassword(btn);
+    const btn = document.createElement('button');
+    btn.innerText = 'Show Password';
+    btn.onclick = () => togglePassword(btn);
 
-      const passwordDiv = document.createElement('div');
-      passwordDiv.classList.add('password');
-      passwordDiv.innerText = `🔑Password: ${acc.password}`;
+    const passwordDiv = document.createElement('div');
+    passwordDiv.classList.add('password');
+    passwordDiv.innerText = `🔑Password: ${acc.password}`;
 
-      toggleDiv.appendChild(btn);
-      toggleDiv.appendChild(passwordDiv);
-      div.appendChild(toggleDiv);
+    toggleDiv.appendChild(btn);
+    toggleDiv.appendChild(passwordDiv);
+    div.appendChild(toggleDiv);
 
-      container.appendChild(div);
-    });
-
-    currentIndex += slice.length; // fix for last chunk
-
-    if (currentIndex >= allAccounts.length) {
-      showMoreBtn.style.display = 'none';
-    }
-  }
-
-  showMoreBtn.addEventListener('click', renderAccounts);
-  renderAccounts();
-
-  function togglePassword(button) {
-    const passwordDiv = button.nextElementSibling;
-    document.querySelectorAll('.password').forEach(p => {
-      if(p !== passwordDiv) {
-        p.style.display='none';
-        if(p.previousElementSibling) p.previousElementSibling.innerText='Show Password';
-      }
-    });
-    if(passwordDiv.style.display === "none" || passwordDiv.style.display==="") {
-      passwordDiv.style.display="block";
-      button.innerText="Hide Password";
-    } else {
-      passwordDiv.style.display="none";
-      button.innerText="Show Password";
-    }
-  }
-
-  // Adblock detection
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      const bait = document.getElementById('ad-bait');
-      const adblockWarning = document.getElementById('adblock-warning');
-      if(!bait || bait.offsetParent===null || bait.offsetHeight===0 || bait.offsetWidth===0){
-        adblockWarning.style.display='block';
-      }
-    }, 3000);
+    container.appendChild(div);
   });
+
+  currentIndex += slice.length;
+
+  if (currentIndex >= allAccounts.length) {
+    showMoreBtn.style.display = 'none';
+  }
+}
+
+showMoreBtn.addEventListener('click', renderAccounts);
+renderAccounts();
+
+function togglePassword(button) {
+  const passwordDiv = button.nextElementSibling;
+  document.querySelectorAll('.password').forEach(p => {
+    if(p !== passwordDiv) {
+      p.style.display='none';
+      if(p.previousElementSibling) p.previousElementSibling.innerText='Show Password';
+    }
+  });
+  if(passwordDiv.style.display === "none" || passwordDiv.style.display==="") {
+    passwordDiv.style.display="block";
+    button.innerText="Hide Password";
+  } else {
+    passwordDiv.style.display="none";
+    button.innerText="Show Password";
+  }
+}
+
+// Adblock detection
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const bait = document.getElementById('ad-bait');
+    const adblockWarning = document.getElementById('adblock-warning');
+    if(!bait || bait.offsetParent===null || bait.offsetHeight===0 || bait.offsetWidth===0){
+      adblockWarning.style.display='block';
+    }
+  }, 3000);
+});
 </script>
 
 </body>
