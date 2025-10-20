@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>HD Wallpapers Hub — Download Free HD & 4K Wallpapers</title>
+  <meta name="description" content="Download free HD & 4K wallpapers: Cars, Anime, Aesthetic, Luxury, Nature, Quotes, Galaxy & Cyberpunk. Organized by collections for easy downloads.">
+  <meta name="keywords" content="HD wallpapers, 4K wallpapers, anime wallpapers, car wallpapers, aesthetic backgrounds, download wallpapers">
+  <link rel="icon" href="favicon.png">
+  <!-- Open Graph -->
+  <meta property="og:title" content="HD Wallpapers Hub — Download Free HD & 4K Wallpapers">
+  <meta property="og:description" content="Download free HD & 4K wallpapers organized in collections: Cars, Anime, Aesthetic, Luxury, Nature, Quotes, Galaxy & Cyberpunk.">
+  <meta property="og:image" content="cover.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"HD Wallpapers Hub",
+    "url":"https://yourdomain.com/",
+    "potentialAction":{
+      "@type":"SearchAction",
+      "target":"https://yourdomain.com/?s={search_term_string}",
+      "query-input":"required name=search_term_string"
+    }
+  }
+  </script>
+
+  <style>
+    :root{--accent:#6C5CE7;--muted:#6b7280;--card:#0f172a}
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;background:linear-gradient(180deg,#07070a 0%, #0f172a 100%);color:#e6eef8}
+    .container{max-width:1100px;margin:28px auto;padding:20px}
+    header{display:flex;align-items:center;gap:16px}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#00c2ff);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:18px}
+    h1{margin:0;font-size:24px}
+    p.lead{color:var(--muted);margin:6px 0 18px}
+
+    .searchBar{display:flex;gap:8px;margin:16px 0}
+    .searchBar input{flex:1;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);color:inherit}
+    .searchBar button{padding:12px 16px;border-radius:10px;border:none;background:var(--accent);color:white;cursor:pointer}
+
+    .boards{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0}
+    .board-btn{background:rgba(255,255,255,0.03);padding:10px 14px;border-radius:999px;color:var(--muted);cursor:pointer;border:1px solid rgba(255,255,255,0.02)}
+    .board-btn.active{background:linear-gradient(90deg,var(--accent),#00c2ff);color:#06102b;border:none}
+
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:20px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03)}
+    .thumb{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
+    .card-body{padding:12px}
+    .title{font-weight:600;margin:0 0 8px;color:#fff}
+    .meta{font-size:13px;color:var(--muted);margin-bottom:10px}
+    .actions{display:flex;gap:8px}
+    .btn{padding:8px 10px;border-radius:8px;border:none;cursor:pointer;font-weight:600}
+    .btn.download{background:var(--accent);color:white}
+    .btn.more{background:rgba(255,255,255,0.03);color:var(--muted)}
+
+    footer{color:var(--muted);margin-top:28px;font-size:14px}
+
+    /* Modal */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);z-index:60}
+    .modal.active{display:flex}
+    .modal-card{background:#071023;padding:20px;border-radius:12px;max-width:860px;width:95%;color:#e6eef8}
+    .modal-grid{display:grid;grid-template-columns:1fr 260px;gap:14px}
+    .modal-grid img{width:100%;height:100%;object-fit:cover;border-radius:8px}
+    .file-list{display:flex;flex-direction:column;gap:8px}
+    .file-item{display:flex;justify-content:space-between;align-items:center;padding:8px;border-radius:8px;background:rgba(255,255,255,0.02)}
+    .file-item a{color:var(--accent);font-weight:600}
+
+    @media(max-width:720px){.modal-grid{grid-template-columns:1fr}
+      header{flex-direction:column;align-items:flex-start}
+      .logo{width:56px;height:56px}
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <div class="logo">HD</div>
+      <div>
+        <h1>HD Wallpapers Hub</h1>
+        <p class="lead">Free HD & 4K wallpapers organized by collections — download fast, set faster.</p>
+      </div>
+    </header>
+
+    <div class="searchBar">
+      <input id="searchInput" placeholder="Search wallpapers (e.g. car, anime, pastel)" aria-label="Search wallpapers">
+      <button id="searchBtn">Search</button>
+    </div>
+
+    <div class="boards" id="boardsList">
+      <!-- Buttons will be populated by JS -->
+    </div>
+
+    <section class="grid" id="gallery">
+      <!-- Cards will be populated by JS -->
+    </section>
+
+    <footer>
+      © <span id="year"></span> HD Wallpapers Hub • All wallpapers provided for personal use • Replace download links with your own files.
+    </footer>
+  </main>
+
+  <!-- Modal: Download / File list -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <strong id="modalTitle">Download pack</strong>
+        <button id="closeModal" class="btn more">Close</button>
+      </div>
+      <div class="modal-grid">
+        <div>
+          <img id="modalImg" src="cover.jpg" alt="preview">
+        </div>
+        <div>
+          <p class="meta" id="modalDesc">Choose a file to download. You can host these files on Google Drive, Dropbox, or your own server.</p>
+          <div class="file-list" id="fileList">
+            <!-- File links populated by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const boards = [
+      {id:'cars', title:'Car Wallpapers', desc:'JDM, supercars & stance wallpapers', cover:'car-cover.jpg'},
+      {id:'anime', title:'Anime Wallpapers', desc:'Popular anime scenes & characters', cover:'anime-cover.jpg'},
+      {id:'aesthetic', title:'Aesthetic Wallpapers', desc:'Pastel, minimal & dreamy backgrounds', cover:'aesthetic-cover.jpg'},
+      {id:'luxury', title:'Luxury Vibes', desc:'Gold, watches & luxury lifestyle', cover:'luxury-cover.jpg'},
+      {id:'nature', title:'Nature & Scenery', desc:'Mountains, sunsets & oceans', cover:'nature-cover.jpg'},
+      {id:'quotes', title:'Motivational Quotes', desc:'Inspiring quote wallpapers', cover:'quotes-cover.jpg'},
+      {id:'galaxy', title:'Galaxy & Space', desc:'Nebulae, stars & cosmic wallpapers', cover:'galaxy-cover.jpg'},
+      {id:'cyber', title:'Cyberpunk & Neon', desc:'Futuristic neon cityscapes', cover:'cyber-cover.jpg'}
+    ];
+
+    // Sample items. Replace 'downloadLink' values with your real file URLs or folder links.
+    const items = [
+      {id:1,board:'cars',title:'Neon Supercar Wallpaper',thumb:'https://i.pinimg.com/736x/e2/0b/5b/e20b5b140456c4f70cea77fde4b237bb.jpg',downloads:[{name:'Mk4 Supra.jpg',url:'https://drive.google.com/drive/folders/1hf_dcUIysr0VpyimQNunL3AVabuGBtbI'},{name:'zip',url:'#'}]},
+      {id:2,board:'anime',title:'Dreamy Anime Night Sky',thumb:'https://media.craiyon.com/2025-05-28/d-raXTm7TQeKNKXiFjjzEA.webp',downloads:[{name:'Anime-Sky-4K.jpg',url:'#'}]},
+      {id:3,board:'aesthetic',title:'Soft Pastel Vibes',thumb:'https://i.pinimg.com/474x/81/86/b7/8186b7935d038353310e2caac6d626ce.jpg',downloads:[{name:'Pastel-Phone-4K.jpg',url:'#'}]},
+      {id:4,board:'luxury',title:'Luxury Lifestyle Wallpaper',thumb:'https://i.pinimg.com/736x/e5/e4/a6/e5e4a62602baac8543864a4df1bf48ae.jpg',downloads:[{name:'Luxury-4K.jpg',url:'#'}]},
+      {id:5,board:'nature',title:'Golden Sunset Over Mountains',thumb:'https://i.pinimg.com/736x/f9/6a/87/f96a876d4fb75bb62565f30ac098e3c4.jpg',downloads:[{name:'Sunset-4K.jpg',url:'#'}]},
+      {id:6,board:'quotes',title:'Stay Focused & Shine',thumb:'https://i.pinimg.com/474x/a2/7b/ef/a27befd387b9e9aaae631f7c34930b7a.jpg',downloads:[{name:'Quote-StayFocused.jpg',url:'#'}]},
+      {id:7,board:'galaxy',title:'Cosmic Dream 4K Wallpaper',thumb:'https://i.pinimg.com/736x/da/8b/75/da8b758d076588dedc306381edb97f88.jpg',downloads:[{name:'Cosmic-4K.jpg',url:'#'}]},
+      {id:8,board:'cyber',title:'Cyber City Lights',thumb:'https://i.pinimg.com/736x/51/cc/0b/51cc0b473b70ecf452a99d62de89dfbe.jpg',downloads:[{name:'Cyberpunk-4K.jpg',url:'#'}]}
+    ];
+
+    const boardsList = document.getElementById('boardsList');
+    const gallery = document.getElementById('gallery');
+    const searchInput = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modalImg');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const fileList = document.getElementById('fileList');
+    const closeModal = document.getElementById('closeModal');
+
+    let activeBoard = null;
+
+    function renderBoards(){
+      boards.forEach(b=>{
+        const btn = document.createElement('button');
+        btn.className = 'board-btn';
+        btn.textContent = b.title;
+        btn.dataset.id = b.id;
+        btn.title = b.desc;
+        btn.addEventListener('click', ()=>{
+          document.querySelectorAll('.board-btn').forEach(x=>x.classList.remove('active'));
+          btn.classList.add('active');
+          activeBoard = b.id;
+          renderGallery();
+        });
+        boardsList.appendChild(btn);
+      });
+    }
+
+    function renderGallery(filterText=''){
+      gallery.innerHTML = '';
+      const filtered = items.filter(i=>{
+        if(activeBoard && i.board !== activeBoard) return false;
+        if(!filterText) return true;
+        return (i.title + ' ' + i.board).toLowerCase().includes(filterText.toLowerCase());
+      });
+
+      if(filtered.length === 0){
+        gallery.innerHTML = '<p style="color:var(--muted)">No wallpapers found. Try clearing the filter.</p>';
+        return;
+      }
+
+      filtered.forEach(i=>{
+        const card = document.createElement('article');
+        card.className = 'card';
+        card.innerHTML = `
+          <img class="thumb" src="${i.thumb}" alt="${i.title}">
+          <div class="card-body">
+            <h3 class="title">${i.title}</h3>
+            <p class="meta">${boards.find(b=>b.id===i.board).title} • Free Download</p>
+            <div class="actions">
+              <button class="btn download" data-id="${i.id}">Download</button>
+              <button class="btn more" data-id="${i.id}">More</button>
+            </div>
+          </div>
+        `;
+        gallery.appendChild(card);
+      });
+
+      // wire buttons
+      document.querySelectorAll('.btn.download').forEach(btn=>btn.addEventListener('click', openModal));
+      document.querySelectorAll('.btn.more').forEach(btn=>btn.addEventListener('click', openModal));
+    }
+
+    function openModal(e){
+      const id = parseInt(e.currentTarget.dataset.id,10);
+      const item = items.find(x=>x.id===id);
+      if(!item) return;
+      modalTitle.textContent = item.title;
+      modalDesc.textContent = boards.find(b=>b.id===item.board).desc;
+      modalImg.src = item.thumb;
+      fileList.innerHTML = '';
+      item.downloads.forEach(f=>{
+        const div = document.createElement('div');
+        div.className = 'file-item';
+        div.innerHTML = `<span>${f.name}</span><a href="${f.url}" download target="_blank">Download</a>`;
+        fileList.appendChild(div);
+      });
+      modal.classList.add('active');
+    }
+
+    closeModal.addEventListener('click', ()=>modal.classList.remove('active'));
+    modal.addEventListener('click', (e)=>{ if(e.target === modal) modal.classList.remove('active'); });
+
+    searchBtn.addEventListener('click', ()=>{ activeBoard=null; document.querySelectorAll('.board-btn').forEach(x=>x.classList.remove('active')); renderGallery(searchInput.value); });
+    searchInput.addEventListener('keydown', (e)=>{ if(e.key === 'Enter'){ activeBoard=null; document.querySelectorAll('.board-btn').forEach(x=>x.classList.remove('active')); renderGallery(searchInput.value); } });
+
+    // Init
+    document.getElementById('year').textContent = new Date().getFullYear();
+    renderBoards();
+    renderGallery();
+
+    // Helpful note for you: replace the placeholder 'thumb' and 'downloads.url' with real hosted file links (Google Drive direct link, S3 link, or your server).
+  </script>
+</body>
+</html>
