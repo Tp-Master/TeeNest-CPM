@@ -28,6 +28,11 @@
   }
   </script>
 
+  <!-- INSERTED SCRIPTS -->
+  <script>(function(s){s.dataset.zone='9649325',s.src='https://groleegni.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+  <script>(function(s){s.dataset.zone='9648025',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+  <script>(function(s){s.dataset.zone='9648021',s.src='https://gizokraijaw.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+
   <style>
     :root{--accent:#6C5CE7;--muted:#6b7280;--card:#0f172a}
     *{box-sizing:border-box}
@@ -136,7 +141,6 @@
       {id:'cyber', title:'Cyberpunk & Neon', desc:'Futuristic neon cityscapes', cover:'cyber-cover.jpg'}
     ];
 
-    // Sample items. Replace 'downloadLink' values with your real file URLs or folder links.
     const items = [
       {id:1,board:'cars',title:'Neon Supercar Wallpaper',thumb:'https://i.pinimg.com/736x/e2/0b/5b/e20b5b140456c4f70cea77fde4b237bb.jpg',downloads:[{name:'Mk4 Supra.jpg',url:'https://drive.google.com/drive/folders/1hf_dcUIysr0VpyimQNunL3AVabuGBtbI'},{name:'zip',url:'#'}]},
       {id:2,board:'anime',title:'Dreamy Anime Night Sky',thumb:'https://media.craiyon.com/2025-05-28/d-raXTm7TQeKNKXiFjjzEA.webp',downloads:[{name:'Anime-Sky-4K.jpg',url:'#'}]},
@@ -208,7 +212,6 @@
         gallery.appendChild(card);
       });
 
-      // wire buttons
       document.querySelectorAll('.btn.download').forEach(btn=>btn.addEventListener('click', openModal));
       document.querySelectorAll('.btn.more').forEach(btn=>btn.addEventListener('click', openModal));
     }
@@ -236,12 +239,9 @@
     searchBtn.addEventListener('click', ()=>{ activeBoard=null; document.querySelectorAll('.board-btn').forEach(x=>x.classList.remove('active')); renderGallery(searchInput.value); });
     searchInput.addEventListener('keydown', (e)=>{ if(e.key === 'Enter'){ activeBoard=null; document.querySelectorAll('.board-btn').forEach(x=>x.classList.remove('active')); renderGallery(searchInput.value); } });
 
-    // Init
     document.getElementById('year').textContent = new Date().getFullYear();
     renderBoards();
     renderGallery();
-
-    // Helpful note for you: replace the placeholder 'thumb' and 'downloads.url' with real hosted file links (Google Drive direct link, S3 link, or your server).
   </script>
 </body>
 </html>
