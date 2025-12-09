@@ -1,256 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Free CPM Accounts List</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #0d0d0d;
-      color: #e0e0e0;
-      margin: 0;
-      padding: 20px;
-    }
-    h1 {
-      text-align: center;
-      color: #00ffcc;
-      text-shadow: 0 0 10px #00ffcc;
-    }
-    .instructions {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 1.1em;
-      color: #aaa;
-    }
-    .account {
-      background: #1a1a1a;
-      border: 1px solid #333;
-      border-radius: 10px;
-      padding: 15px;
-      margin-bottom: 15px;
-      box-shadow: 0 0 10px rgba(0,255,204,0.2);
-      transition: transform 0.2s;
-    }
-    .account:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 20px rgba(0,255,204,0.4);
-    }
-    .email-box {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 5px 10px;
-      background: #0f0f0f;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    .email {
-      color: #00ccff;
-      font-weight: bold;
-    }
-    .password-box {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 5px;
-      padding: 5px 10px;
-      background: #0f0f0f;
-      border-radius: 6px;
-    }
-    .password {
-      color: #ff0066;
-      font-weight: bold;
-      display: none;
-    }
-    .copy-btn {
-      margin-left: 10px;
-      padding: 3px 8px;
-      background: #00ffcc;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      color: #000;
-      font-size: 0.9em;
-      transition: 0.2s;
-    }
-    .copy-btn:hover {
-      background: #00cc99;
-    }
-    button#showMoreBtn {
-      display: block;
-      margin: 20px auto;
-      padding: 8px 15px;
-      background: #00ffcc;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      color: #000;
-      font-weight: bold;
-      transition: 0.2s;
-    }
-    button#showMoreBtn:hover {
-      background: #00cc99;
-    }
-    .toast {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #333;
-      color: #fff;
-      padding: 10px 15px;
-      border-radius: 6px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s;
-    }
-    .toast.show {
-      opacity: 1;
-    }
-    .footer-text {
-      text-align: center;
-      margin-top: 30px;
-      font-size: 0.95em;
-      color: #aaa;
-    }
-    #blockedMessage {
-      display: none;
-      text-align: center;
-      color: red;
-      font-size: 1.3em;
-      margin-top: 50px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Accounts List — Teenest CPM</title>
+<style>
+/* --- THEME: Teenest CPM Modern Dark Mode with Neon Accents --- */
+
+:root {
+  --color-dark: #111111;
+  --color-background: #191919;
+  --color-text: #eeeeee;
+  --color-muted: #aaaaaa;
+  --color-primary: #00ffff; /* Neon Cyan/Blue */
+  --color-secondary: #ff0055; /* Bright Red/Magenta */
+  --font-family: 'Verdana', sans-serif;
+  --border-radius: 8px;
+  --max-width: 1100px;
+}
+
+/* Reset and Base Styles */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-family); background-color: var(--color-dark); color: var(--color-text); line-height: 1.6; }
+a { color: var(--color-primary); text-decoration: none; transition: color 0.3s ease; }
+a:hover { color: var(--color-secondary); }
+h1, h2, h3 { font-weight: 700; margin-bottom: 0.5em; line-height: 1.2; }
+h1 { font-size: 2.5em; }
+.muted { color: var(--color-muted); }
+
+/* Layout Container */
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+
+/* --- Header & Navigation --- */
+.header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; border-bottom: 2px solid #222; }
+.brand { display: flex; align-items: center; }
+.logo { font-size: 2.5rem; font-weight: bold; color: var(--color-primary); background: var(--color-secondary); width: 45px; height: 45px; display: flex; justify-content: center; align-items: center; border-radius: var(--border-radius); margin-right: 0.5rem; box-shadow: 0 0 15px rgba(255, 0, 85, 0.6); }
+.brand-title { font-size: 1.5rem; font-weight: 800; letter-spacing: 1px; }
+.brand-sub { font-size: 0.8rem; color: var(--color-muted); }
+.nav { display: flex; }
+.nav a { padding: 0.5rem 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid transparent; transition: all 0.3s ease; }
+.nav a:hover, .nav a.active-page { color: var(--color-primary); border-bottom: 2px solid var(--color-primary); }
+.mobile-toggle { display: none; background: none; border: none; color: var(--color-primary); font-size: 1.8rem; cursor: pointer; }
+
+/* --- Main Content --- */
+main { padding: 2rem 0; }
+
+/* --- Accounts Styles --- */
+#accountsList { max-width: 700px; margin: 1rem auto; }
+.account { background-color: var(--color-background); border: 1px dashed var(--color-primary); padding: 1rem; margin-bottom: 1rem; border-radius: var(--border-radius); font-family: 'Courier New', monospace; display: flex; flex-direction: column; }
+.email-box, .password-box { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 1rem; border-radius: var(--border-radius); background-color: #222; margin-top: 0.5rem; }
+.email { color: var(--color-primary); font-weight: bold; }
+.password { color: var(--color-secondary); font-weight: bold; display: none; }
+.copy-btn { margin-left: 10px; padding: 3px 8px; background-color: var(--color-primary); border: none; border-radius: var(--border-radius); cursor: pointer; color: var(--color-dark); font-size: 0.9em; transition: 0.2s; }
+.copy-btn:hover { background-color: var(--color-secondary); }
+
+/* Show More Button */
+button#showMoreBtn { display: block; margin: 20px auto; padding: 8px 15px; background: var(--color-primary); border: 2px solid var(--color-primary); border-radius: var(--border-radius); cursor: pointer; color: var(--color-dark); font-weight: bold; transition: 0.2s; }
+button#showMoreBtn:hover { background-color: transparent; color: var(--color-primary); box-shadow: 0 0 10px rgba(0,255,255,0.5); }
+
+/* Toast */
+.toast { position: fixed; bottom: 20px; right: 20px; background: #333; color: #fff; padding: 10px 15px; border-radius: var(--border-radius); opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+.toast.show { opacity: 1; }
+
+/* Footer */
+.footer { text-align: center; padding: 1.5rem 0; margin-top: 2rem; border-top: 1px solid #222; color: var(--color-muted); font-size: 0.9rem; }
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .header { flex-wrap: wrap; padding-bottom: 1rem; }
+  .nav { display: none; flex-direction: column; width: 100%; margin-top: 1rem; border-top: 1px solid #222; }
+  .nav.open { display: flex; }
+  .nav a { padding: 0.75rem 0; text-align: center; border-bottom: none; }
+  .mobile-toggle { display: block; }
+}
+</style>
 </head>
 <body>
+<div class="container">
+  <!-- Header / Navbar -->
+  <header class="header">
+    <div class="brand">
+      <div class="logo">T</div>
+      <div>
+        <div class="brand-title">Teenest CPM</div>
+        <div class="brand-sub">Free Accounts</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="giveaway.html">Giveaway</a>
+      <a href="account.html">Accounts</a>
+      <a href="account list.html" class="active-page">Accounts list</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+    <button class="mobile-toggle" aria-hidden="true">☰</button>
+  </header>
 
-  <h1>🎮 Free CPM Accounts List</h1>
-  <div class="instructions">
-    These are free CPM accounts updated daily. Click on an email box to reveal its password. Use the copy buttons to copy and paste into your game — and enjoy!
-  </div>
+  <!-- Main Content -->
+  <main>
+    <h1>🎮 Free CPM Accounts List</h1>
+    <p class="muted">Click on an email box to reveal its password. Use the copy buttons to copy and paste into your game.</p>
 
-  <div id="blockedMessage">⚠ Please disable your ad blocker or VPN to view this page.</div>
-  <div id="accountsContent">
-    <div id="accountsList"></div>
-    <button id="showMoreBtn">Show More</button>
-  </div>
-
-  <div id="toast" class="toast">Copied!</div>
-
-  <script>
-    // CPM Accounts
-    const accounts = [
-      { email: "Tee025@gmail.com", password: "662288" },
-       { email: "Tee026@gmail.com", password: "887755" },
-      { email: "Tee027@gmail.com", password: "998855" },
-       { email: "Tee028@gmail.com", password: "884411" },
-      { email: "Tee029@gmail.com", password: "883366" },
-    ];
-
-    const accountsList = document.getElementById("accountsList");
-    const showMoreBtn = document.getElementById("showMoreBtn");
-    const toast = document.getElementById("toast");
-    let visibleCount = 10;
-
-    function renderAccounts() {
-      accountsList.innerHTML = "";
-      accounts.slice(0, visibleCount).forEach((acc, index) => {
-        const div = document.createElement("div");
-        div.className = "account";
-        div.innerHTML = `
-          <div class="email-box" onclick="togglePassword(${index})">
-            <span class="email">${acc.email}</span>
-            <button class="copy-btn" onclick="copyText('${acc.email}'); event.stopPropagation();">Copy</button>
-          </div>
-          <div class="password-box">
-            <span class="password" id="pass-${index}">${acc.password}</span>
-            <button class="copy-btn" id="pass-btn-${index}" style="display:none;" onclick="copyText('${acc.password}')">Copy</button>
-          </div>
-        `;
-        accountsList.appendChild(div);
-      });
-
-      if (visibleCount >= accounts.length) showMoreBtn.style.display = "none";
-      else showMoreBtn.style.display = "block";
-    }
-
-    function togglePassword(index) {
-      document.querySelectorAll(".password").forEach(p => p.style.display = "none");
-      document.querySelectorAll(".copy-btn[id^='pass-btn-']").forEach(b => b.style.display = "none");
-      const passEl = document.getElementById(`pass-${index}`);
-      const passBtn = document.getElementById(`pass-btn-${index}`);
-      if (passEl) {
-        passEl.style.display = "inline-block";
-        passBtn.style.display = "inline-block";
-      }
-    }
-
-    function copyText(text) {
-      navigator.clipboard.writeText(text);
-      showToast("Copied!");
-    }
-
-    function showToast(message) {
-      toast.textContent = message;
-      toast.classList.add("show");
-      setTimeout(() => toast.classList.remove("show"), 2000);
-    }
-
-    showMoreBtn.addEventListener("click", () => {
-      visibleCount += 10;
-      renderAccounts();
-    });
-
-    // Ad blocker detection
-    function detectAdBlock() {
-      const testAd = document.createElement('div');
-      testAd.className = 'adsbox';
-      testAd.style.height = '1px';
-      document.body.appendChild(testAd);
-      const isBlocked = testAd.offsetHeight === 0;
-      testAd.remove();
-      return isBlocked;
-    }
-
-    // VPN detection (basic)
-    async function detectVPN() {
-      try {
-        const res = await fetch('https://ipapi.co/json/');
-        const data = await res.json();
-        const blockedCountries = ['RU','CN','NG','IR','KP']; // example
-        return blockedCountries.includes(data.country_code);
-      } catch(e) { return false; }
-    }
-
-    async function checkAccess() {
-      const blocked = detectAdBlock() || await detectVPN();
-      if(blocked) {
-        document.getElementById('accountsContent').style.display = 'none';
-        document.getElementById('blockedMessage').style.display = 'block';
-      } else {
-        renderAccounts();
-      }
-    }
-
-    checkAccess();
-  </script>
-
-  <!-- Your monetization scripts -->
-  <script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('groleegni.net',9649325,document.createElement('script'))</script>
-  <script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('gizokraijaw.net',9648021,document.createElement('script'))</script>
-  <script>(function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('vemtoutcheeg.com',9648019,document.createElement('script'))</script>
-
+    <div id="blockedMessage">⚠ Please disable your ad blocker or VPN to view this page.</div>
+    <div id="accountsContent">
+      <div id="accountsList"></div>
+      <button id="showMoreBtn">Show More</button>
+    </div>
+  </main>
+  
   <div class="footer-text">
     NOTE: All CPM accounts on this list were first uploaded to 
     <a href="https://carparkingmultiplayer.co.za" target="_blank" style="color:#00ccff; text-decoration:underline;">
-      carparkingmultiplayer.co.za
+      giveway page
     </a>, and then added to this list.
   </div>
 
+  <!-- FOOTER -->
+  <footer class="footer">
+    © 2025 Teenest CPM · Made with ❤️ for the CPM community
+  </footer>
+
+<!-- JS Scripts -->
+<script>
+/* Mobile Nav Toggle & Active Link */
+(function() {
+  const btn = document.querySelector('.mobile-toggle');
+  const nav = document.querySelector('.nav');
+  if (btn) btn.addEventListener('click', () => nav.classList.toggle('open'));
+})();
+
+/* CPM Accounts */
+const accounts = [
+  { email: "Tee025@gmail.com", password: "662288" },
+  { email: "Tee026@gmail.com", password: "887755" },
+  { email: "Tee027@gmail.com", password: "998855" },
+  { email: "Tee028@gmail.com", password: "884411" },
+  { email: "Tee029@gmail.com", password: "883366" }
+];
+
+const accountsList = document.getElementById("accountsList");
+const showMoreBtn = document.getElementById("showMoreBtn");
+const toast = document.createElement('div');
+toast.className = 'toast';
+document.body.appendChild(toast);
+
+let visibleCount = 10;
+
+function renderAccounts() {
+  accountsList.innerHTML = "";
+  accounts.slice(0, visibleCount).forEach((acc,index)=>{
+    const div = document.createElement('div');
+    div.className='account';
+    div.innerHTML=`
+      <div class="email-box" onclick="togglePassword(${index})">
+        <span class="email">${acc.email}</span>
+        <button class="copy-btn" onclick="copyText('${acc.email}'); event.stopPropagation();">Copy</button>
+      </div>
+      <div class="password-box">
+        <span class="password" id="pass-${index}">${acc.password}</span>
+        <button class="copy-btn" id="pass-btn-${index}" style="display:none;" onclick="copyText('${acc.password}')">Copy</button>
+      </div>
+    `;
+    accountsList.appendChild(div);
+  });
+  showMoreBtn.style.display = visibleCount >= accounts.length ? 'none' : 'block';
+}
+
+function togglePassword(index) {
+  document.querySelectorAll(".password").forEach(p=>p.style.display='none');
+  document.querySelectorAll(".copy-btn[id^='pass-btn-']").forEach(b=>b.style.display='none');
+  const passEl=document.getElementById(`pass-${index}`);
+  const passBtn=document.getElementById(`pass-btn-${index}`);
+  if(passEl){ passEl.style.display='inline-block'; passBtn.style.display='inline-block'; }
+}
+
+function copyText(text){
+  navigator.clipboard.writeText(text);
+  toast.textContent='Copied!';
+  toast.classList.add('show');
+  setTimeout(()=>toast.classList.remove('show'),2000);
+}
+
+showMoreBtn.addEventListener('click',()=>{ visibleCount+=10; renderAccounts(); });
+renderAccounts();
+</script>
 </body>
 </html>
-
-
-
-
-

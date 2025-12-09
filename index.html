@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teenest CPM — Car Parking Multiplayer Hub</title>
+<style>
+/* --- THEME: Teenest CPM Modern Dark Mode with Neon Accents --- */
+
+:root {
+  --color-dark: #111111;
+  --color-background: #191919;
+  --color-text: #eeeeee;
+  --color-muted: #aaaaaa;
+  --color-primary: #00ffff;
+  --color-secondary: #ff0055;
+  --font-family: 'Verdana', sans-serif;
+  --border-radius: 8px;
+  --max-width: 1100px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-dark);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: 0.3s;
+}
+a:hover { color: var(--color-secondary); }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  border-bottom: 2px solid #222;
+}
+
+.brand { display: flex; align-items: center; }
+
+.logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  background: var(--color-secondary);
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--border-radius);
+  margin-right: 0.5rem;
+  box-shadow: 0 0 15px rgba(255,0,85,0.6);
+}
+
+/* NAVIGATION */
+.nav { display: flex; }
+.nav a {
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-bottom: 2px solid transparent;
+}
+.nav a:hover { border-bottom: 2px solid var(--color-primary); }
+
+.mobile-toggle { display: none; }
+
+/* TOP BANNER - inserted below header */
+.top-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  object-fit: cover;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid #222;
+}
+
+.hero .left { flex: 3; }
+.hero .right { flex: 1; }
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  margin-top: 1rem;
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  background-color: var(--color-primary);
+  color: var(--color-dark);
+  border: 2px solid var(--color-primary);
+  transition: 0.3s;
+  text-transform: uppercase;
+}
+.btn:hover {
+  background: transparent;
+  color: var(--color-primary);
+  box-shadow: 0 0 15px rgba(0,255,255,0.5);
+}
+.btn.small { padding: 0.5rem 1rem; }
+
+.card {
+  background-color: var(--color-background);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  border-left: 5px solid var(--color-secondary);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  margin-bottom: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+  gap: 2rem;
+  padding-top: 2rem;
+}
+
+.footer {
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 2rem;
+  border-top: 1px solid #222;
+  color: var(--color-muted);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .hero { flex-direction: column; text-align:center; }
+  .mobile-toggle { display: block; }
+  .nav { display:none; flex-direction:column; width:100%; }
+  .nav.open { display:flex; }
+  .nav a { text-align:center; padding:1rem 0; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="header">
+    <div class="brand">
+      <div class="logo">T</div>
+      <div>
+        <div class="brand-title">Teenest CPM</div>
+        <div class="brand-sub">CPM guides, giveaways & videos</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="giveaway.html">Giveaway</a>
+      <a href="account.html">account</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+    <button class="mobile-toggle" aria-hidden="true">☰</button>
+  </header>
+
+  <!-- BANNER ADDED (direct Drive link) -->
+  <div class="top-banner">
+    <img src="https://media.canva.com/v2/image-resize/format:PNG/height:279/quality:100/uri:ifs%3A%2F%2FM%2Fa1281108-d7f4-40ed-88df-1bfb5e1399bf/watermark:F/width:550?csig=AAAAAAAAAAAAAAAAAAAAAN_tcFmXBuTQSd11eRMspvE2Z8VmTJdK029WmkRslzL1&exp=1765271589&osig=AAAAAAAAAAAAAAAAAAAAAJgWtINFkXNQhbeUenRPppQGcV4EJmbLzZqd58E9acvi&signer=media-rpc&x-canva-quality=thumbnail_large" alt="Banner">
+  </div>
+
+  <section class="hero">
+    <div class="left">
+      <h1>Car Parking Multiplayer — tips, mods & free accounts</h1>
+      <p class="muted">Welcome to Teenest CPM — your go-to hub for Car Parking Multiplayer tutorials, account giveaways, and gameplay highlights. Subscribe to the YouTube channel for regular videos and live events.</p>
+      <a class="btn" href="https://www.youtube.com/@TeenestCPM" target="_blank">Visit my YouTube channel</a>
+    </div>
+    <aside class="right">
+      <div class="card">
+        <strong>Latest Upload</strong>
+        <p class="muted">I post gameplay, account drops, and tuning guides — check the channel for the newest videos.</p>
+        <a class="btn small" href="https://www.youtube.com/@TeenestCPM/videos" target="_blank">See videos</a>
+      </div>
+    </aside>
+  </section>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Why follow Teenest CPM?</h3>
+      <p class="muted">Daily account giveaways, clear tutorials for mods & tuning, and a friendly community. Perfect for new and veteran CPM players.</p>
+      <a class="btn" href="giveaway.html">Get free accounts</a>
+    </div>
+
+    <div class="card">
+      <h3>Quick Links</h3>
+      <ul class="muted">
+        <li><a href="giveaway.html">Latest giveaways</a></li>
+        <li><a href="contact.html">Instagram & WhatsApp</a></li>
+        <li><a href="https://chat.whatsapp.com/H6NKEBYlZWuCo76t3gdvpc" target="_blank">Join WhatsApp group</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <footer class="footer">
+    © 2025 Teenest CPM · Made with ❤️ for the CPM community
+  </footer>
+</div>
+
+<script>
+const btn = document.querySelector('.mobile-toggle');
+const nav = document.querySelector('.nav');
+btn && btn.addEventListener('click', ()=> nav.classList.toggle('open'));
+</script>
+</body>
+</html>
