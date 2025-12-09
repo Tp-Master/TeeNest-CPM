@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fun Click Race 🏁 — Teenest CPM</title>
+<style>
+/* --- Teenest CPM Dark Neon Theme --- */
+:root {
+  --color-dark: #111111;
+  --color-background: #191919;
+  --color-text: #eeeeee;
+  --color-muted: #aaaaaa;
+  --color-primary: #00ffff;
+  --color-secondary: #ff0055;
+  --font-family: 'Verdana', sans-serif;
+  --border-radius: 8px;
+  --max-width: 1100px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-dark);
+  color: var(--color-text);
+  line-height: 1.6;
+  padding: 0;
+}
+
+a { color: var(--color-primary); text-decoration: none; transition: 0.3s; }
+a:hover { color: var(--color-secondary); }
+
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+
+/* HEADER */
+.header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; border-bottom: 2px solid #222; }
+.brand { display: flex; align-items: center; }
+.logo { font-size: 2.5rem; font-weight: bold; color: var(--color-primary); background: var(--color-secondary); width: 45px; height: 45px; display: flex; justify-content: center; align-items: center; border-radius: var(--border-radius); margin-right: 0.5rem; box-shadow: 0 0 15px rgba(255,0,85,0.6); }
+.nav { display: flex; }
+.nav a { padding: 0.5rem 1rem; font-weight: 600; text-transform: uppercase; border-bottom: 2px solid transparent; }
+.nav a:hover { border-bottom: 2px solid var(--color-primary); }
+.mobile-toggle { display: none; }
+
+/* HERO / PAGE TITLE */
+.hero { text-align: center; padding: 2rem 0; }
+.hero h1 { font-size: 2rem; color: var(--color-primary); margin-bottom: 1rem; }
+
+/* BANNER */
+.top-banner {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+.top-banner img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,255,255,0.3);
+}
+
+/* CARD STYLING */
+.card {
+  background-color: var(--color-background);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  border-left: 5px solid var(--color-secondary);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  margin: 1rem auto;
+  max-width: 400px;
+  text-align: left;
+}
+.card .detail { margin: 0.5rem 0; }
+
+/* FUN GATE / GAME */
+#funGate {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: #000d;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  padding: 20px;
+  z-index: 9999;
+  color: var(--color-text);
+}
+
+#gameArea {
+  position: relative;
+  width: 300px;
+  height: 60px;
+  background: #222;
+  border-radius: 30px;
+  margin-top: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,255,255,0.3) inset;
+}
+
+#player {
+  position: absolute;
+  width: 50px; height: 50px;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center; align-items: center;
+  top: 5px; left: 0;
+  transition: transform 0.1s, left 0.1s;
+}
+
+#player.animate {
+  transform: scale(1.2);
+}
+
+button {
+  margin-top: 15px;
+  padding: 12px 20px;
+  border-radius: var(--border-radius);
+  border: none;
+  background: var(--color-primary);
+  color: var(--color-dark);
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+button:hover {
+  background: transparent;
+  color: var(--color-primary);
+  box-shadow: 0 0 15px rgba(0,255,255,0.5);
+}
+
+/* FOOTER */
+.footer { text-align: center; padding: 1.5rem 0; margin-top: 2rem; border-top: 1px solid #222; color: var(--color-muted); }
+
+/* MOBILE */
+@media(max-width:768px){
+  .mobile-toggle { display: block; }
+  .nav { display:none; flex-direction:column; width:100%; }
+  .nav.open { display:flex; }
+  .nav a { text-align:center; padding:1rem 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="brand">
+      <div class="logo">T</div>
+      <div>
+        <div class="brand-title">Teenest CPM</div>
+        <div class="brand-sub">CPM guides, giveaways & videos</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="giveaway.html">Giveaway</a>
+      <a href="account.html">Account</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+
+    <button class="mobile-toggle">☰</button>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>🏁 CPM ACCOUNT GIVEAWAY</h1>
+  </section>
+  
+  <!-- BANNER ADDED (direct Drive link) -->
+  <div class="top-banner">
+    <img src="https://media.canva.com/v2/image-resize/format:PNG/height:279/quality:100/uri:ifs%3A%2F%2FM%2Fa1281108-d7f4-40ed-88df-1bfb5e1399bf/watermark:F/width:550?csig=AAAAAAAAAAAAAAAAAAAAAN_tcFmXBuTQSd11eRMspvE2Z8VmTJdK029WmkRslzL1&exp=1765271589&osig=AAAAAAAAAAAAAAAAAAAAAJgWtINFkXNQhbeUenRPppQGcV4EJmbLzZqd58E9acvi&signer=media-rpc&x-canva-quality=thumbnail_large" alt="Banner">
+  </div>
+  
+  <!-- RED H2 -->
+  <h2 style="color: var(--color-secondary); margin-top:1rem; text-align:center;">
+    Free CPM Accounts (First come, first served)
+  </h2>
+
+  <p class="muted" style="text-align:center; margin-bottom:1.5rem;">
+    Try the accounts below — we update this page frequently. Use responsibly.
+  </p>
+
+  <!-- ACCOUNT CARD -->
+  <div class="card">
+    <h2>Account Drop</h2>
+    <div class="detail">📧 <strong>Email:</strong> tee@nest.cpm</div>
+    <div class="detail">🔑 <strong>Password:</strong> 434556</div>
+  </div>
+
+</div>
+
+<!-- FUN GATE -->
+<div id="funGate">
+  <h2>🏎 Click Fast!</h2>
+  <p>Click the button to race your car to the finish line!</p>
+  <div id="gameArea">
+    <div id="player">🚗</div>
+  </div>
+  <button id="clickBtn">Click Me!</button>
+  <p id="progressText">Progress: 0%</p>
+</div>
+
+<aside class="right">
+      <div class="card">
+        <strong>ACCOUNTS LIST</strong>
+        <p class="muted"></p>
+        <a class="btn small" href="https://www.youtube.com/@TeenestCPM/videos" target="_blank">Show List</a>
+      </div>
+
+<p class="muted" style="text-align:center; margin-bottom:1.5rem;">
+    Want more drops? Subscribe to the YouTube channel and join the WhatsApp group for instant notifications.
+</p>
+
+<footer class="footer">
+  © 2025 Teenest CPM · Made with ❤️ for the CPM community
+</footer>
+
+<script>
+/* MOBILE MENU */
+const btn = document.querySelector('.mobile-toggle');
+const nav = document.querySelector('.nav');
+btn.addEventListener('click', () => nav.classList.toggle('open'));
+
+/* GAME LOGIC */
+const player = document.getElementById('player');
+const clickBtn = document.getElementById('clickBtn');
+const progressText = document.getElementById('progressText');
+const gate = document.getElementById('funGate');
+
+let progress = 0;
+const finish = 100;
+const moveAmount = 10;
+
+clickBtn.addEventListener('click', () => {
+  progress += moveAmount;
+  if(progress > finish) progress = finish;
+
+  // Move from left to right
+  player.style.left = (progress/finish)*(300-50) + 'px';
+
+  progressText.textContent = `Progress: ${progress}%`;
+
+  player.classList.add('animate');
+  setTimeout(() => player.classList.remove('animate'), 100);
+
+  if(progress >= finish){
+    gate.style.display = 'none';
+    alert('🎉 You won! Login Unlocked!');
+  }
+});
+</script>
+
+</body>
+</html>
