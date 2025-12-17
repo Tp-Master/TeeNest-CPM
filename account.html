@@ -167,7 +167,7 @@ a:hover { color: var(--color-secondary); }
         <li>Find the matching account details below.</li>
         <li>Log in using the email and password.</li>
         <li>First come, first served.</li>
-        <li>Do not change the password so others can also enjoy.</li>
+        <li>To change the password or access World Sale cars, create and verify a Gmail account linked to this account.</li>
       </ul>
     </div>
 
@@ -209,8 +209,8 @@ btn.addEventListener('click', () => nav.classList.toggle('open'));
 
 /* ACCOUNT SYSTEM */
 const accountsList = [
-    { email: "TeeNestDrop1@gmail.com", password: "pass1" },
-    { email: "TeeNestDrop2@gmail.com", password: "pass2" }
+    { email: "EMAIL: 158@112.111 #158", password: "337711" },
+    { email: "EMAIL: 159@112.111 #159", password: "112233" }
 ];
 
 let loaded = 0;
@@ -223,7 +223,7 @@ function loadAccounts() {
         const div = document.createElement("div");
         div.className = "account-box";
         div.innerHTML = `
-            <div class="email">📧 ${acc.email} (Account #${i + 1})</div>
+            <div class="email">📧 ${acc.email} </div>
             <div class="password"><strong>Password:</strong> ${acc.password}</div>
             <div class="password-btn" onclick="showPassword(this)">Show Password</div>
         `;
