@@ -188,6 +188,14 @@ button:hover {
 
     <button class="mobile-toggle">☰</button>
   </header>
+  
+  <div id="cpm-box">
+  <p id="cpm-text">
+    🚗 CPM free account will be uploaded everytime when the timer ends
+  </p>
+  <div id="timer">Loading...</div>
+</div>
+
 
   <!-- HERO -->
   <section class="hero">
@@ -286,6 +294,67 @@ clickBtn.addEventListener('click', () => {
   }
 });
 </script>
+
+<style>
+  #cpm-box {
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+
+  #cpm-text {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    color: #fff;
+  }
+
+  #timer {
+    font-size: 3rem;
+    background: #222;
+    color: #00ff99;
+    padding: 20px 40px;
+    border-radius: 10px;
+    display: inline-block;
+  }
+</style>
+
+<script>
+  function getNext1PMSAST() {
+    const now = new Date();
+    const nowUTC = new Date(now.getTime() + now.getTimezoneOffset() * 60000);
+    const nowSAST = new Date(nowUTC.getTime() + 2 * 60 * 60 * 1000);
+
+    const target = new Date(nowSAST);
+    target.setHours(13, 0, 0, 0);
+    if (nowSAST >= target) target.setDate(target.getDate() + 1);
+
+    return target;
+  }
+
+  let targetTime = getNext1PMSAST();
+
+  function updateTimer() {
+    const now = new Date();
+    const nowUTC = new Date(now.getTime() + now.getTimezoneOffset() * 60000);
+    const nowSAST = new Date(nowUTC.getTime() + 2 * 60 * 60 * 1000);
+
+    let diff = targetTime - nowSAST;
+    if (diff <= 0) targetTime = getNext1PMSAST();
+
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+
+    document.getElementById("timer").innerHTML =
+      String(h).padStart(2,"0")+":"+
+      String(m).padStart(2,"0")+":"+
+      String(s).padStart(2,"0");
+  }
+
+  updateTimer();
+  setInterval(updateTimer, 1000);
+</script>
+
+
 
 </body>
 </html>
