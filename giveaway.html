@@ -194,12 +194,6 @@ button:hover {
     <h1>Car Parking Multiplayer Free Account Giveaway!💥🎮🚗 </h1>
   </section>
   
-  <div id="cpm-box">
-  <div id="timer">Loading...</div>
-<p class="muted" style="text-align:center; margin-bottom:1.5rem;">
-    CPM free account will be uploaded everytime when the timer ends
-  </p>
-  
   <!-- BANNER ADDED (direct Drive link) -->
   <div class="top-banner">
     <img src="https://github.com/Tp-Master/TeeNest-CPM/blob/main/giveaway%20image.jpg?raw=true" alt="Banner">
@@ -216,12 +210,10 @@ Welcome to our official Car Parking Multiplayer account giveaway page! Here, you
 
   <!-- ACCOUNT CARD -->
   <div class="card">
-    <h2>Account Drop</h2>
-    <div class="detail">📧 <strong>Email:</strong> Teecpm0013@gmail.com</div>
-    <div class="detail">🔑 <strong>Password:</strong> 997788</div>
+    <h2>CPM Free Account </h2>
+    <div class="detail">📧 <strong>Email:</strong> Teecpm0014@gmail.com</div>
+    <div class="detail">🔑 <strong>Password:</strong> 882233</div>
   </div>
-
-</div>
 
 <!-- FUN GATE -->
 <div id="funGate">
@@ -314,45 +306,6 @@ clickBtn.addEventListener('click', () => {
     display: inline-block;
   }
 </style>
-
-<script>
-  function getNext1PMSAST() {
-    const now = new Date();
-    const nowUTC = new Date(now.getTime() + now.getTimezoneOffset() * 60000);
-    const nowSAST = new Date(nowUTC.getTime() + 2 * 60 * 60 * 1000);
-
-    const target = new Date(nowSAST);
-    target.setHours(13, 0, 0, 0);
-    if (nowSAST >= target) target.setDate(target.getDate() + 1);
-
-    return target;
-  }
-
-  let targetTime = getNext1PMSAST();
-
-  function updateTimer() {
-    const now = new Date();
-    const nowUTC = new Date(now.getTime() + now.getTimezoneOffset() * 60000);
-    const nowSAST = new Date(nowUTC.getTime() + 2 * 60 * 60 * 1000);
-
-    let diff = targetTime - nowSAST;
-    if (diff <= 0) targetTime = getNext1PMSAST();
-
-    const h = Math.floor(diff / 3600000);
-    const m = Math.floor((diff % 3600000) / 60000);
-    const s = Math.floor((diff % 60000) / 1000);
-
-    document.getElementById("timer").innerHTML =
-      String(h).padStart(2,"0")+":"+
-      String(m).padStart(2,"0")+":"+
-      String(s).padStart(2,"0");
-  }
-
-  updateTimer();
-  setInterval(updateTimer, 1000);
-</script>
-
-
 
 </body>
 </html>
