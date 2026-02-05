@@ -38,17 +38,7 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://carparkingmultiplayer.co.za/terms&amp;conditions.html</loc>
-  <lastmod>2026-02-05T17:10:41+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://carparkingmultiplayer.co.za/contact-us</loc>
-  <lastmod>2026-02-05T17:10:41+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://carparkingmultiplayer.co.za/about-us</loc>
+  <loc>https://carparkingmultiplayer.co.za/terms&conditions.html</loc>
   <lastmod>2026-02-05T17:10:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -57,6 +47,7 @@
   <lastmod>2026-02-05T17:10:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
+
 
 
 </urlset>
