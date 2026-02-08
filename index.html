@@ -8,9 +8,9 @@
 <title>CarParkingMultiplayer.co.za – Official TeenestCPM Site</title>
 <meta name="description" content="CarParkingMultiplayer.co.za is the official website of TeenestCPM, providing Car Parking Multiplayer guides, free accounts, giveaways, tips, and community updates.">
 
-<!-- ================== AdBlock Detection ================== -->
 <script>
 (function() {
+    // Try loading a fake ad library
     var adScript = document.createElement('script');
     adScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
     adScript.async = true;
@@ -21,8 +21,21 @@
 
     adScript.onerror = function() {
         console.log("AdBlock detected ❌");
+        // Show overlay
         var overlay = document.createElement('div');
-        overlay.style.cssText = "position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);color:#fff;display:flex;justify-content:center;align-items:center;text-align:center;flex-direction:column;z-index:9999;";
+        overlay.style.position = 'fixed';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100%';
+        overlay.style.height = '100%';
+        overlay.style.background = 'rgba(0,0,0,0.95)';
+        overlay.style.color = '#fff';
+        overlay.style.zIndex = '9999';
+        overlay.style.display = 'flex';
+        overlay.style.flexDirection = 'column';
+        overlay.style.justifyContent = 'center';
+        overlay.style.alignItems = 'center';
+        overlay.style.textAlign = 'center';
         overlay.innerHTML = "<h1 style='font-size:40px;margin-bottom:20px;'>AdBlock Detected!</h1><p style='font-size:20px;'>Please disable your AdBlocker to continue using this website.</p>";
         document.body.appendChild(overlay);
         document.body.style.overflow = 'hidden';
@@ -32,9 +45,8 @@
 })();
 </script>
 
-<!-- JQuery OR zepto is required, you can use Cloudflare's CDN or self-host it. -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>    
-    
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
 <script>
   $.getJSON("//proxycheck.io/v3/?key=public-62642b-4w0052-599291", function( json ) {
     if ((json.status == "warning" || json.status == "ok") && json[json.ip].detections.anonymous == true ) {
@@ -54,9 +66,10 @@
 </script>
 
 <!-- ================= MONETAG ADS (Placed right after <head>) ================= -->
-<script>(function(s){s.dataset.zone='10586410',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+<script>(function(s){s.dataset.zone='10586410',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>  
 <script>(function(s){s.dataset.zone='10586412',s.src='https://gizokraijaw.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
-
+    
+<style>
 /* --- THEME: Teenest CPM Modern Dark Mode with Neon Accents --- */
 
 :root {
