@@ -10,26 +10,42 @@
 
 <script>
 (function() {
-    var ad = document.createElement('div');
-    ad.className = 'adsbox';
-    ad.style.height = '1px';
-    ad.style.width = '1px';
-    ad.style.position = 'absolute';
-    ad.style.left = '-9999px';
-    document.body.appendChild(ad);
+    // Try loading a fake ad library
+    var adScript = document.createElement('script');
+    adScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+    adScript.async = true;
 
-    setTimeout(function() {
-        if (ad.offsetParent === null || ad.offsetHeight === 0 || ad.clientHeight === 0) {
-            alert("AdBlock detected! Please disable AdBlock to use this site.");
-            // Optional: redirect if you want
-            // window.location.href = "/adblock.html";
-        }
-        ad.remove();
-    }, 50);
+    adScript.onload = function() {
+        console.log("Ad library loaded ✅ No AdBlock detected");
+    };
+
+    adScript.onerror = function() {
+        console.log("AdBlock detected ❌");
+        // Show overlay
+        var overlay = document.createElement('div');
+        overlay.style.position = 'fixed';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100%';
+        overlay.style.height = '100%';
+        overlay.style.background = 'rgba(0,0,0,0.95)';
+        overlay.style.color = '#fff';
+        overlay.style.zIndex = '9999';
+        overlay.style.display = 'flex';
+        overlay.style.flexDirection = 'column';
+        overlay.style.justifyContent = 'center';
+        overlay.style.alignItems = 'center';
+        overlay.style.textAlign = 'center';
+        overlay.innerHTML = "<h1 style='font-size:40px;margin-bottom:20px;'>AdBlock Detected!</h1><p style='font-size:20px;'>Please disable your AdBlocker to continue using this website.</p>";
+        document.body.appendChild(overlay);
+        document.body.style.overflow = 'hidden';
+    };
+
+    document.head.appendChild(adScript);
 })();
-</script>  
-  
-<!-- Google tag (gtag.js) -->
+</script>
+
+    <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDBJK5R8HN"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
