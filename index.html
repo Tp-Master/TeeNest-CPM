@@ -8,9 +8,12 @@
 <title>CarParkingMultiplayer.co.za – Official TeenestCPM Site</title>
 <meta name="description" content="CarParkingMultiplayer.co.za is the official website of TeenestCPM, providing Car Parking Multiplayer guides, free accounts, giveaways, tips, and community updates.">
 
+<!-- ================== jQuery ================== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+<!-- ================== AdBlock Detection ================== -->
 <script>
 (function() {
-    // Try loading a fake ad library
     var adScript = document.createElement('script');
     adScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
     adScript.async = true;
@@ -21,21 +24,8 @@
 
     adScript.onerror = function() {
         console.log("AdBlock detected ❌");
-        // Show overlay
         var overlay = document.createElement('div');
-        overlay.style.position = 'fixed';
-        overlay.style.top = '0';
-        overlay.style.left = '0';
-        overlay.style.width = '100%';
-        overlay.style.height = '100%';
-        overlay.style.background = 'rgba(0,0,0,0.95)';
-        overlay.style.color = '#fff';
-        overlay.style.zIndex = '9999';
-        overlay.style.display = 'flex';
-        overlay.style.flexDirection = 'column';
-        overlay.style.justifyContent = 'center';
-        overlay.style.alignItems = 'center';
-        overlay.style.textAlign = 'center';
+        overlay.style.cssText = "position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);color:#fff;display:flex;justify-content:center;align-items:center;text-align:center;flex-direction:column;z-index:9999;";
         overlay.innerHTML = "<h1 style='font-size:40px;margin-bottom:20px;'>AdBlock Detected!</h1><p style='font-size:20px;'>Please disable your AdBlocker to continue using this website.</p>";
         document.body.appendChild(overlay);
         document.body.style.overflow = 'hidden';
@@ -45,33 +35,37 @@
 })();
 </script>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-
+<!-- ================== VPN/Proxy Detection ================== -->
 <script>
-  $.getJSON("//proxycheck.io/v3/?key=public-62642b-4w0052-599291", function( json ) {
-    if ((json.status == "warning" || json.status == "ok") && json[json.ip].detections.anonymous == true ) {
-      document.body.innerHTML = 'Please deactivate your proxy to access this page.';
+$.getJSON("https://proxycheck.io/v3/?key=public-62642b-4w0052-599291", function(json) {
+    var visitorIP = Object.keys(json).find(key => key !== "status");
+    if (visitorIP && json[visitorIP].detections.anonymous === true) {
+        var overlay = document.createElement('div');
+        overlay.style.cssText = "position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);color:#fff;display:flex;justify-content:center;align-items:center;text-align:center;flex-direction:column;z-index:9999;";
+        overlay.innerHTML = "<h1 style='font-size:40px;margin-bottom:20px;'>VPN/Proxy Detected!</h1><p style='font-size:20px;'>Please deactivate your VPN or Proxy to access this page.</p>";
+        document.body.appendChild(overlay);
+        document.body.style.overflow = 'hidden';
+        // Optional redirect
+        // window.location.href = "https://www.example.com";
     }
- });
+});
 </script>
-    
-    <!-- Google tag (gtag.js) -->
+
+<!-- ================== Google Analytics ================== -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDBJK5R8HN"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-PDBJK5R8HN');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-PDBJK5R8HN');
 </script>
 
-<!-- ================= MONETAG ADS (Placed right after <head>) ================= -->
+<!-- ================= MONETAG ADS ================= -->
 <script>(function(s){s.dataset.zone='9648025',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
 <script>(function(s){s.dataset.zone='9648021',s.src='https://gizokraijaw.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>  
-  
+
 <style>
 /* --- THEME: Teenest CPM Modern Dark Mode with Neon Accents --- */
-
 :root {
   --color-dark: #111111;
   --color-background: #191919;
@@ -83,139 +77,29 @@
   --border-radius: 8px;
   --max-width: 1100px;
 }
-
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: var(--font-family);
-  background-color: var(--color-dark);
-  color: var(--color-text);
-  line-height: 1.6;
-}
-
-a {
-  color: var(--color-primary);
-  text-decoration: none;
-  transition: 0.3s;
-}
+body { font-family: var(--font-family); background-color: var(--color-dark); color: var(--color-text); line-height: 1.6; }
+a { color: var(--color-primary); text-decoration: none; transition: 0.3s; }
 a:hover { color: var(--color-secondary); }
-
-.container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-  .brand-sub {
-  font-size: 0.8rem;
-  color: var(--color-muted);
-}
-
-/* HEADER */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 0;
-  border-bottom: 2px solid #222;
-}
-
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+.brand-sub { font-size: 0.8rem; color: var(--color-muted); }
+.header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; border-bottom: 2px solid #222; }
 .brand { display: flex; align-items: center; }
-
-.logo {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: var(--color-primary);
-  background: var(--color-secondary);
-  width: 45px;
-  height: 45px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: var(--border-radius);
-  margin-right: 0.5rem;
-  box-shadow: 0 0 15px rgba(255,0,85,0.6);
-}
-
-/* NAVIGATION */
+.logo { font-size: 2.5rem; font-weight: bold; color: var(--color-primary); background: var(--color-secondary); width: 45px; height: 45px; display: flex; justify-content: center; align-items: center; border-radius: var(--border-radius); margin-right: 0.5rem; box-shadow: 0 0 15px rgba(255,0,85,0.6); }
 .nav { display: flex; }
-.nav a {
-  padding: 0.5rem 1rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  border-bottom: 2px solid transparent;
-}
+.nav a { padding: 0.5rem 1rem; font-weight: 600; text-transform: uppercase; border-bottom: 2px solid transparent; }
 .nav a:hover { border-bottom: 2px solid var(--color-primary); }
-
 .mobile-toggle { display: none; }
-
-/* TOP BANNER */
-.top-banner img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 10px;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  object-fit: cover;
-}
-
-/* HERO */
-.hero {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-  padding-top: 3rem;
-  padding-bottom: 4rem;
-  border-bottom: 1px solid #222;
-}
-
+.top-banner img { width: 100%; height: auto; display: block; border-radius: 10px; margin-top: 1rem; margin-bottom: 2rem; object-fit: cover; }
+.hero { display: flex; gap: 2rem; align-items: center; padding-top: 3rem; padding-bottom: 4rem; border-bottom: 1px solid #222; }
 .hero .left { flex: 3; }
 .hero .right { flex: 1; }
-
-.btn {
-  padding: 0.75rem 1.5rem;
-  margin-top: 1rem;
-  border-radius: var(--border-radius);
-  font-weight: bold;
-  background-color: var(--color-primary);
-  color: var(--color-dark);
-  border: 2px solid var(--color-primary);
-  transition: 0.3s;
-  text-transform: uppercase;
-}
-.btn:hover {
-  background: transparent;
-  color: var(--color-primary);
-  box-shadow: 0 0 15px rgba(0,255,255,0.5);
-}
+.btn { padding: 0.75rem 1.5rem; margin-top: 1rem; border-radius: var(--border-radius); font-weight: bold; background-color: var(--color-primary); color: var(--color-dark); border: 2px solid var(--color-primary); transition: 0.3s; text-transform: uppercase; }
+.btn:hover { background: transparent; color: var(--color-primary); box-shadow: 0 0 15px rgba(0,255,255,0.5); }
 .btn.small { padding: 0.5rem 1rem; }
-
-.card {
-  background-color: var(--color-background);
-  padding: 1.5rem;
-  border-radius: var(--border-radius);
-  border-left: 5px solid var(--color-secondary);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  margin-bottom: 1.5rem;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-  gap: 2rem;
-  padding-top: 2rem;
-}
-
-.footer {
-  text-align: center;
-  padding: 1.5rem 0;
-  margin-top: 2rem;
-  border-top: 1px solid #222;
-  color: var(--color-muted);
-}
-
-/* MOBILE */
+.card { background-color: var(--color-background); padding: 1.5rem; border-radius: var(--border-radius); border-left: 5px solid var(--color-secondary); box-shadow: 0 4px 15px rgba(0,0,0,0.2); margin-bottom: 1.5rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 2rem; padding-top: 2rem; }
+.footer { text-align: center; padding: 1.5rem 0; margin-top: 2rem; border-top: 1px solid #222; color: var(--color-muted); }
 @media(max-width:768px){
   .hero { flex-direction: column; text-align:center; }
   .mobile-toggle { display: block; }
@@ -226,7 +110,6 @@ a:hover { color: var(--color-secondary); }
 </style>
 </head>
 <body>
-    
 <div class="container">
   <header class="header">
     <div class="brand">
@@ -254,7 +137,7 @@ a:hover { color: var(--color-secondary); }
   <section class="hero">
     <div class="left">
       <h1>Welcome to CarParkingMultiplayer.co.za</h1>
-      <p><strong>CarParkingMultiplayer.co.za</strong> is the official website of <strong>TeenestCPM</strong>, Providing car parking multiplayer tutorials, Free car parking multiplayer accounts giveaways, and gameplay highlights. Subscribe to the YouTube channel for Car Parking Multiplayer free accouts videos and live events.</p></p>
+      <p><strong>CarParkingMultiplayer.co.za</strong> is the official website of <strong>TeenestCPM</strong>, providing tutorials, free accounts, and gameplay highlights. Subscribe to the YouTube channel for videos and live events.</p>
       <a class="btn" href="https://www.youtube.com/@TeenestCPM" target="_blank">Visit my YouTube channel</a>
     </div>
     <aside class="right">
@@ -269,7 +152,7 @@ a:hover { color: var(--color-secondary); }
   <div class="grid">
     <div class="card">
       <h3>Why follow Teenest CPM?</h3>
-      <p class="muted">Daily account giveaways, clear tutorials for mods & tuning, and a friendly community. Perfect for new and veteran CPM players.</p>
+      <p class="muted">Daily account giveaways, clear tutorials, and a friendly community. Perfect for new and veteran CPM players.</p>
       <a class="btn" href="cpm-free-account-giveaway.html">Get free accounts</a>
     </div>
 
@@ -283,20 +166,22 @@ a:hover { color: var(--color-secondary); }
     </div>
   </div>
 
-  <footer style="background:#191919; color:#fff; padding:20px; text-align:center; font-family:Arial, sans-serif;">
-  <p><strong>CarParkingMultiplayer.co.za</strong> – Official website of <strong>TeenestCPM</strong></p>
-  <p>Providing Car Parking Multiplayer accounts, guides, tutorials, and community updates.</p>
-  <p>
-    <a href="https://carparkingmultiplayer.co.za" style="color:#00ffff; text-decoration:none;">Home</a> |
-    <a href="https://carparkingmultiplayer.co.za/cpm-free-account-giveaway.html" style="color:#00ffff; text-decoration:none;">Giveaways</a> |
-    <a href="https://carparkingmultiplayer.co.za/cpm-free-accounts.html" style="color:#00ffff; text-decoration:none;">Free CPM Accounts</a> |
-    <a href="https://carparkingmultiplayer.co.za/contact-us" style="color:#00ffff; text-decoration:none;">Contact Us</a> |
-    <a href="https://carparkingmultiplayer.co.za/about-us" style="color:#00ffff; text-decoration:none;">About Us</a>
-  </p>
-  <p style="font-size:12px; color:#aaa;">&copy; 2026 CarParkingMultiplayer.co.za | All rights reserved</p>
-</footer>
+  <footer class="footer">
+    <p><strong>CarParkingMultiplayer.co.za</strong> – Official website of <strong>TeenestCPM</strong></p>
+    <p>Providing Car Parking Multiplayer accounts, guides, tutorials, and community updates.</p>
+    <p>
+      <a href="https://carparkingmultiplayer.co.za" style="color:#00ffff; text-decoration:none;">Home</a> |
+      <a href="https://carparkingmultiplayer.co.za/cpm-free-account-giveaway.html" style="color:#00ffff; text-decoration:none;">Giveaways</a> |
+      <a href="https://carparkingmultiplayer.co.za/cpm-free-accounts.html" style="color:#00ffff; text-decoration:none;">Free CPM Accounts</a> |
+      <a href="https://carparkingmultiplayer.co.za/contact-us" style="color:#00ffff; text-decoration:none;">Contact Us</a> |
+      <a href="https://carparkingmultiplayer.co.za/about-us" style="color:#00ffff; text-decoration:none;">About Us</a>
+    </p>
+    <p style="font-size:12px; color:#aaa;">&copy; 2026 CarParkingMultiplayer.co.za | All rights reserved</p>
+  </footer>
+</div>
 
 <script>
+// Mobile menu toggle
 const btn = document.querySelector('.mobile-toggle');
 const nav = document.querySelector('.nav');
 btn && btn.addEventListener('click', ()=> nav.classList.toggle('open'));
