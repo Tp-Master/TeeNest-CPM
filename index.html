@@ -8,6 +8,30 @@
 <title>CarParkingMultiplayer.co.za – Official TeenestCPM Site</title>
 <meta name="description" content="CarParkingMultiplayer.co.za is the official website of TeenestCPM, providing Car Parking Multiplayer guides, free accounts, giveaways, tips, and community updates.">
 
+<script>
+window.onload = function() {
+    // Create a fake ad element
+    var ad = document.createElement('div');
+    ad.innerHTML = '&nbsp;';
+    ad.className = 'adsbox';
+    ad.style.position = 'absolute';
+    ad.style.height = '1px';
+    ad.style.width = '1px';
+    ad.style.top = '-1000px';
+    document.body.appendChild(ad);
+
+    // Check if AdBlock is active
+    window.setTimeout(function() {
+        if (ad.offsetHeight === 0) {
+            // AdBlock detected
+            document.cookie = "adblock=true; path=/"; // set a cookie for Cloudflare
+            window.location.href = "/adblock.html"; // redirect to block page
+        }
+        ad.remove();
+    }, 100);
+};
+</script>  
+  
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDBJK5R8HN"></script>
 <script>
