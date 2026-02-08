@@ -9,27 +9,23 @@
 <meta name="description" content="CarParkingMultiplayer.co.za is the official website of TeenestCPM, providing Car Parking Multiplayer guides, free accounts, giveaways, tips, and community updates.">
 
 <script>
-window.onload = function() {
-    // Create a fake ad element
+document.addEventListener('DOMContentLoaded', function() {
     var ad = document.createElement('div');
-    ad.innerHTML = '&nbsp;';
     ad.className = 'adsbox';
     ad.style.position = 'absolute';
+    ad.style.left = '-9999px';
     ad.style.height = '1px';
     ad.style.width = '1px';
-    ad.style.top = '-1000px';
     document.body.appendChild(ad);
 
-    // Check if AdBlock is active
-    window.setTimeout(function() {
-        if (ad.offsetHeight === 0) {
-            // AdBlock detected
-            document.cookie = "adblock=true; path=/"; // set a cookie for Cloudflare
-            window.location.href = "/adblock.html"; // redirect to block page
+    setTimeout(function() {
+        if (ad.offsetParent === null || ad.offsetHeight === 0) {
+            document.cookie = "adblock=true; path=/";
+            window.location.href = "/adblock.html";
         }
         ad.remove();
     }, 100);
-};
+});
 </script>  
   
 <!-- Google tag (gtag.js) -->
