@@ -32,20 +32,12 @@
 })();
 </script>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-
 <script>
-$.getJSON("https://proxycheck.io/v3/?key=public-62642b-4w0052-599291", function(json) {
-    // Use Object.keys to find the first IP key that isn't 'status'
-    var visitorIP = Object.keys(json).find(key => key !== "status");
-    console.log(json, visitorIP); // Debug: see what your API actually returns
-
-    if(visitorIP && json[visitorIP].detections && json[visitorIP].detections.anonymous === true) {
-        document.body.innerHTML = "<h1 style='text-align:center;margin-top:50px;color:#fff;'>VPN/Proxy Detected!</h1><p style='text-align:center;color:#fff;'>Please disable your VPN/Proxy to access this page.</p>";
-        document.body.style.background = "#111";
-        document.body.style.overflow = "hidden";
+  $.getJSON("//proxycheck.io/v3/?key=public-62642b-4w0052-599291", function( json ) {
+    if ((json.status == "warning" || json.status == "ok") && json[json.ip].detections.anonymous == true ) {
+      document.body.innerHTML = 'Please deactivate your proxy to access this page.';
     }
-});
+ });
 </script>
     
     <!-- Google tag (gtag.js) -->
