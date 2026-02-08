@@ -47,7 +47,7 @@
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
-    <script>
+<script>
   $.getJSON("//proxycheck.io/v3/?key=public-62642b-4w0052-599291", function( json ) {
     if ((json.status == "warning" || json.status == "ok") && json[json.ip].detections.anonymous == true ) {
       document.body.innerHTML = 'Please deactivate your proxy to access this page.';
