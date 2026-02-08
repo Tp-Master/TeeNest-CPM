@@ -45,6 +45,22 @@
 })();
 </script>
 
+<script>
+  $.getJSON("https://proxycheck.io/v3/?key=public-62642b-4w0052-599291", function(json) {
+    // json.ip gives the visitor's IP info
+    var visitorIP = Object.keys(json).find(key => key !== "status");
+
+    if (visitorIP && json[visitorIP].detections.anonymous === true) {
+      // Show a message on the page
+      document.body.innerHTML = '<h1 style="text-align:center;margin-top:50px;">Please deactivate your proxy or VPN to access this page.</h1>';
+      
+      // Optional: redirect to another page instead
+      // window.location.href = "https://www.example.com";
+    }
+  });
+</script>
+
+
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDBJK5R8HN"></script>
 <script>
