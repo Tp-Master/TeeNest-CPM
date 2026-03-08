@@ -284,6 +284,94 @@ Welcome Car Parking Multiplayer accounts giveaway page! Here, you can claim  CPM
     Want more accounts? Subscribe to the YouTube channel and join the WhatsApp group for instant notifications.
 </p>
 
+    <!-- FLOATING SHARE BUTTON WITH COLORS AND TEXT -->
+<div id="floating-share" style="position: fixed; right: 20px; bottom: 50px; z-index: 9999;">
+  <button id="floating-btn"><i class="fas fa-share-alt"></i> Share</button>
+  <div id="floating-menu" style="display:none; flex-direction: column; gap: 10px; margin-top:10px;">
+
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank" class="share-link" style="background:#3b5998;">
+      <i class="fab fa-facebook"></i> Facebook
+    </a>
+
+    <a href="#" onclick="copyInstagramLink()" class="share-link" style="background:linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7);">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+
+    <a href="https://wa.me/?text=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank" class="share-link" style="background:#25D366;">
+      <i class="fab fa-whatsapp"></i> WhatsApp
+    </a>
+
+    <a href="https://twitter.com/intent/tweet?url=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank" class="share-link" style="background:#1DA1F2;">
+      <i class="fab fa-x-twitter"></i> X
+    </a>
+
+    <a href="https://t.me/share/url?url=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank" class="share-link" style="background:#0088cc;">
+      <i class="fab fa-telegram"></i> Telegram
+    </a>
+
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank" class="share-link" style="background:#0077b5;">
+      <i class="fab fa-linkedin"></i> LinkedIn
+    </a>
+
+    <a href="https://www.reddit.com/submit?url=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank" class="share-link" style="background:#FF4500;">
+      <i class="fab fa-reddit"></i> Reddit
+    </a>
+
+  </div>
+</div>
+
+<style>
+  #floating-btn {
+    background: #ff0055; /* your new color */
+    color: #fff;          /* text color */
+    border: none;
+    border-radius: 50px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  #floating-btn:hover { transform: scale(1.05); }
+
+  #floating-menu {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .share-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 12px;
+    font-size: 15px;
+    color: #fff;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .share-link:hover { transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+</style>
+
+<script>
+  const floatingBtn = document.getElementById("floating-btn");
+  const floatingMenu = document.getElementById("floating-menu");
+  floatingBtn.addEventListener("click", () => {
+    floatingMenu.style.display = floatingMenu.style.display === "flex" ? "none" : "flex";
+  });
+
+  function copyInstagramLink() {
+    const url = "https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html";
+    navigator.clipboard.writeText(url).then(() => {
+      alert("Link copied! Paste it in Instagram to share.");
+    });
+  }
+</script>
+
 <footer style="background:#191919; color:#fff; padding:20px; text-align:center; font-family:Arial, sans-serif;">
   <p><strong>CarParkingMultiplayer.co.za</strong> – Official website of <strong>TeenestCPM</strong></p>
   <p>Providing Car Parking Multiplayer accounts, guides, tutorials, and community updates.</p>
