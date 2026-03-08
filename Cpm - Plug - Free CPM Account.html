@@ -41,6 +41,9 @@
 
   gtag('config', 'G-LGF8B24S4L');
 </script>
+
+<!-- Font Awesome for Share Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   
 <title>Cpm_Plug Free Accounts</title>
 <style>
@@ -213,6 +216,29 @@
     font-weight: bold;
   }
 
+ /* Share Menu Style */
+  #share-menu {
+    display: none;
+    margin-top: 12px;
+    text-align: center;
+  }
+  #share-menu a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    margin: 5px;
+    color: white;
+  }
+  #share-menu a:nth-child(1) { background: #1877f2; }
+  #share-menu a:nth-child(2) { background: #25d366; }
+  #share-menu a:nth-child(3) { background: #000; }
+  #share-menu a:nth-child(4) { background: #0088cc; }
+  #share-menu a:nth-child(5) { background: #0a66c2; }
+  #share-menu a:nth-child(6) { background: #ff4500; }
+
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
@@ -254,6 +280,19 @@
 <h3>📂 Account List</h3>
 <div id="accounts-container"></div>
 <button id="show-more-btn">Show More Accounts</button>
+
+<!-- SHARE BUTTON INSERTED HERE -->
+<div id="share-container" style="text-align:center;margin-top:20px;">
+<button onclick="toggleShareMenu()"><i class="fas fa-share-alt"></i> Share Page</button>
+<div id="share-menu">
+<a href="https://www.facebook.com/sharer/sharer.php?u=https://carparkingmultiplayer.co.za" target="_blank"><i class="fab fa-facebook"></i></a>
+<a href="https://wa.me/?text=https://carparkingmultiplayer.co.za" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a href="https://twitter.com/intent/tweet?url=https://carparkingmultiplayer.co.za" target="_blank"><i class="fab fa-x-twitter"></i></a>
+<a href="https://t.me/share/url?url=https://carparkingmultiplayer.co.za" target="_blank"><i class="fab fa-telegram"></i></a>
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://carparkingmultiplayer.co.za" target="_blank"><i class="fab fa-linkedin"></i></a>
+<a href="https://www.reddit.com/submit?url=https://carparkingmultiplayer.co.za" target="_blank"><i class="fab fa-reddit"></i></a>
+</div>
+</div>
 
 <h3>💬 Need Help or Want to Request New Drops?</h3>
 <p>DM us on Instagram: <a href="https://instagram.com/Cpm_Plug" target="_blank">@Cpm_Plug</a></p>
@@ -421,6 +460,12 @@ function togglePassword(button) {
     passwordDiv.style.display="none";
     button.innerText="Show Password";
   }
+}
+
+// SHARE BUTTON SCRIPT
+function toggleShareMenu(){
+  var menu=document.getElementById("share-menu");
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
 }
 
 // Adblock detection
