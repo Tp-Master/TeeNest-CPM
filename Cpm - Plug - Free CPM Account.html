@@ -287,17 +287,46 @@
 
 <!-- SHARE BUTTON INSERTED HERE -->
 <div id="share-container" style="text-align:center;margin-top:20px;">
-<button onclick="toggleShareMenu()"><i class="fas fa-share-alt"></i> Share Page</button>
-<div id="share-menu">
-<a href="https://www.facebook.com/sharer/sharer.php?u=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank"><i class="fab fa-facebook"></i></a> 
-<a href="https://instagram.com/https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank"><i class="fab fa-instagram"></i></a>   
-<a href="https://wa.me/?text=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank"><i class="fab fa-whatsapp"></i></a>
-<a href="https://twitter.com/intent/tweet?url=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank"><i class="fab fa-x-twitter"></i></a>
-<a href="https://t.me/share/url?url=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank"><i class="fab fa-telegram"></i></a>
-<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank"><i class="fab fa-linkedin"></i></a>
-<a href="https://www.reddit.com/submit?url=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank"><i class="fab fa-reddit"></i></a>
+  <button onclick="toggleShareMenu()"><i class="fas fa-share-alt"></i> Share Page</button>
+  <div id="share-menu" style="display:none;margin-top:12px; gap:10px;">
+
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank"><i class="fab fa-facebook"></i></a> 
+
+    <!-- Instagram (copy link) -->
+    <a href="#" onclick="copyInstagramLink()"><i class="fab fa-instagram"></i></a>   
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/?text=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <!-- X (Twitter) -->
+    <a href="https://twitter.com/intent/tweet?url=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank"><i class="fab fa-x-twitter"></i></a>
+
+    <!-- Telegram -->
+    <a href="https://t.me/share/url?url=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank"><i class="fab fa-telegram"></i></a>
+
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank"><i class="fab fa-linkedin"></i></a>
+
+    <!-- Reddit -->
+    <a href="https://www.reddit.com/submit?url=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank"><i class="fab fa-reddit"></i></a>
+
+  </div>
 </div>
-</div>
+
+<script>
+  function toggleShareMenu(){
+    var menu = document.getElementById("share-menu");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+  }
+
+  function copyInstagramLink() {
+    const url = "https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html";
+    navigator.clipboard.writeText(url).then(() => {
+      alert("Link copied! Paste it in Instagram to share.");
+    });
+  }
+</script>
 
 <h3>💬 Need Help or Want to Request New Drops?</h3>
 <p>DM us on Instagram: <a href="https://instagram.com/Cpm_Plug" target="_blank">@Cpm_Plug</a></p>
