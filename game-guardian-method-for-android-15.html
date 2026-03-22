@@ -116,6 +116,30 @@ a:hover { color: var(--color-secondary); }
   .nav.open { display:flex; }
   .nav a { text-align:center; padding:1rem 0; }
 }
+
+.video-container {
+    display: flex;
+    justify-content: center;   /* horizontal center */
+    align-items: center;       /* vertical center (optional) */
+    width: 100%;
+    padding: 20px 0;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 90%;
+    max-width: 800px; /* controls max size */
+    padding-bottom: 56.25%; /* 16:9 ratio */
+    height: 0;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
 </style>
 
 </head>
@@ -166,6 +190,18 @@ a:hover { color: var(--color-secondary); }
 
 <a href="https://www.mediafire.com/file/w6bciz6gld0t1s1/ESPACIO_VIRTUAL.apk/file" class="button">Download Espacio Virtual</a><br>
 <a href="https://www.mediafire.com/file/4td2xexfu16m6wo/GG_%255BIMALAN_YT%255D.apk/file" class="button">Download GG IMALAN YT</a>
+
+<h2 style="text-align:center;margin-bottom:40px;">YouTube Video</h2>
+
+    <div class="video-container">
+    <div class="video-wrapper">
+        <iframe 
+            src="https://www.youtube.com/embed/VIDEO_nexFmt29cdI"
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+    </div>
+</div>
 
 <h2 style="text-align:center;margin-bottom:40px;">Why This Method Works on Android 15+</h2>
 
