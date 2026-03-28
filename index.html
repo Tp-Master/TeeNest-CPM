@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -224,6 +223,17 @@ a:hover { color: var(--color-secondary); }
   .nav.open { display:flex; }
   .nav a { text-align:center; padding:1rem 0; }
 }
+
+/* Specific styling for active link */
+.nav a[href="index.html"].active-page {
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+.nav a[href="giveaway.html"].active-page,
+.nav a[href="aboutus.html"].active-page,
+.nav a[href="contactus.html"].active-page,
+.nav a[href="terms&conditions.html"].active-page, 
+}
+
 </style>
 </head>
 <body>
@@ -366,6 +376,130 @@ a:hover { color: var(--color-secondary); }
       </ul>
     </div>
   </div>
+  
+  <!-- FAQ SECTION START -->
+<div class="faq-container">
+
+<h2>❓ Frequently Asked Questions</h2>
+
+<div class="faq-item">
+<div class="faq-question">What is Car Parking Multiplayer?</div>
+<div class="faq-answer">Car Parking Multiplayer is an open-world driving simulator with multiplayer features, car customization, and realistic physics.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">Is Car Parking Multiplayer free?</div>
+<div class="faq-answer">Yes, the game is free to play on Android and iOS with optional in-app purchases.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">Can I play Car Parking Multiplayer offline?</div>
+<div class="faq-answer">Yes, offline mode is available, but multiplayer requires an internet connection.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">What is the size of the game?</div>
+<div class="faq-answer">The game size is around 800MB to 1.5GB depending on your device.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">How to download Car Parking Multiplayer APK?</div>
+<div class="faq-answer">You can download it from the Google Play Store or trusted APK websites.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">Is Car Parking Multiplayer safe to install?</div>
+<div class="faq-answer">Yes, if downloaded from official or trusted sources, it is safe to install.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">Does the game have multiplayer mode?</div>
+<div class="faq-answer">Yes, you can play with real players, chat, and trade cars online.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">Can I customize cars?</div>
+<div class="faq-answer">Yes, the game allows full car customization including engine, suspension, and appearance.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">What devices support the game?</div>
+<div class="faq-answer">The game supports Android smartphones, tablets, iPhones, and iPads.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">Why is Car Parking Multiplayer so popular?</div>
+<div class="faq-answer">It is popular because of its realistic gameplay, open world, and multiplayer interaction features.</div>
+</div>
+
+</div>
+
+<style>
+.faq-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    color: white;
+}
+
+.faq-item {
+    border-bottom: 1px solid #334155;
+    padding: 15px 0;
+}
+
+.faq-question {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.faq-answer {
+    display: none;
+    padding-top: 10px;
+    color: #cbd5f5;
+}
+</style>
+
+<script>
+document.querySelectorAll(".faq-question").forEach(q => {
+    q.addEventListener("click", () => {
+        let a = q.nextElementSibling;
+        a.style.display = a.style.display === "block" ? "none" : "block";
+    });
+});
+</script>
+
+<!-- FAQ SCHEMA -->
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"FAQPage",
+"mainEntity":[
+
+{"@type":"Question","name":"What is Car Parking Multiplayer?","acceptedAnswer":{"@type":"Answer","text":"Car Parking Multiplayer is an open-world driving simulator with multiplayer features, car customization, and realistic physics."}},
+
+{"@type":"Question","name":"Is Car Parking Multiplayer free?","acceptedAnswer":{"@type":"Answer","text":"Yes, the game is free to play on Android and iOS with optional in-app purchases."}},
+
+{"@type":"Question","name":"Can I play Car Parking Multiplayer offline?","acceptedAnswer":{"@type":"Answer","text":"Yes, offline mode is available, but multiplayer requires internet."}},
+
+{"@type":"Question","name":"What is the size of the game?","acceptedAnswer":{"@type":"Answer","text":"The game size is around 800MB to 1.5GB depending on your device."}},
+
+{"@type":"Question","name":"How to download Car Parking Multiplayer APK?","acceptedAnswer":{"@type":"Answer","text":"You can download it from the Google Play Store or trusted APK websites."}},
+
+{"@type":"Question","name":"Is Car Parking Multiplayer safe to install?","acceptedAnswer":{"@type":"Answer","text":"Yes, if downloaded from official or trusted sources, it is safe to install."}},
+
+{"@type":"Question","name":"Does the game have multiplayer mode?","acceptedAnswer":{"@type":"Answer","text":"Yes, you can play with real players, chat, and trade cars online."}},
+
+{"@type":"Question","name":"Can I customize cars?","acceptedAnswer":{"@type":"Answer","text":"Yes, the game allows full car customization including engine, suspension, and appearance."}},
+
+{"@type":"Question","name":"What devices support the game?","acceptedAnswer":{"@type":"Answer","text":"The game supports Android smartphones, tablets, iPhones, and iPads."}},
+
+{"@type":"Question","name":"Why is Car Parking Multiplayer so popular?","acceptedAnswer":{"@type":"Answer","text":"It is popular because of its realistic gameplay, open world, and multiplayer interaction features."}}
+
+]
+}
+</script>
+<!-- FAQ SECTION END -->
 
     <!-- FLOATING SHARE BUTTON WITH COLORS AND TEXT -->
 <div id="floating-share" style="position: fixed; right: 20px; bottom: 50px; z-index: 9999;">
