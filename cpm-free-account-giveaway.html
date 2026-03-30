@@ -63,6 +63,52 @@
   --text:#e5e7eb;
 }
 
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-dark);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: 0.3s;
+}
+a:hover { color: var(--color-secondary); }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0;
+}
+
+  .brand-sub {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+.logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  background: var(--color-secondary);
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--border-radius);
+  margin-right: 0.5rem;
+  box-shadow: 0 0 15px rgba(255,0,85,0.6);
+}
+
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:var(--bg);color:var(--text)}
+
 /* NAV */
 .header{
 position:sticky;top:0;z-index:1000;
@@ -114,6 +160,7 @@ display:flex;
 
 /* MOBILE */
 .menu-btn{display:none;font-size:28px;cursor:pointer}
+
 @media(max-width:768px){
 .menu-btn{display:block}
 
@@ -138,43 +185,21 @@ box-shadow:none;
 .dropdown-menu.open{display:flex}
 }
 
-/* TOP BANNER */
-.top-banner img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 10px;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  object-fit: cover;
+
+/* HERO */
+.hero {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid #222;
 }
 
+.hero .left { flex: 3; }
+.hero .right { flex: 1; }
 
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: var(--font-family);
-  background-color: var(--color-dark);
-  color: var(--color-text);
-  line-height: 1.6;
-  padding: 0;
-}
-
-a { color: var(--color-primary); text-decoration: none; transition: 0.3s; }
-a:hover { color: var(--color-secondary); }
-
-.container { max-width: var(--max-width); margin: 0 auto; padding: 0; }
-
-/* HEADER */
-.header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; border-bottom: 2px solid #222; }
-.brand { display: flex; align-items: center; }
-.logo { font-size: 2.5rem; font-weight: bold; color: var(--color-primary); background: var(--color-secondary); width: 45px; height: 45px; display: flex; justify-content: center; align-items: center; border-radius: var(--border-radius); margin-right: 0.5rem; box-shadow: 0 0 15px rgba(255,0,85,0.6); }
-
-
-/* HERO / PAGE TITLE */
-.hero { text-align: center; padding: 2rem 0; }
-.hero h1 { font-size: 2rem; color: var(--color-primary); margin-bottom: 1rem; }
 
 /* BANNER */
 .top-banner {
@@ -261,9 +286,6 @@ button:hover {
   box-shadow: 0 0 15px rgba(0,255,255,0.5);
 }
 
-/* FOOTER */
-.footer { text-align: center; padding: 1.5rem 0; margin-top: 2rem; border-top: 1px solid #222; color: var(--color-muted); }
-
 
 </style>
  
@@ -283,6 +305,8 @@ button:hover {
     </div>
 
 </section>
+
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
 
 <nav class="nav" id="nav">
       <a href="index.html">Home</a>
