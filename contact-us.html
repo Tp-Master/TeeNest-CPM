@@ -45,8 +45,6 @@
 </script>
   
 <style>
-/* --- THEME: Teenest CPM Modern Dark Mode with Neon Accents --- */
-
 :root {
   --color-dark: #111111;
   --color-background: #191919;
@@ -63,6 +61,8 @@
   --text:#e5e7eb;
 }
 
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
   font-family: var(--font-family);
   background-color: var(--color-dark);
@@ -73,48 +73,21 @@ body {
 a {
   color: var(--color-primary);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: 0.3s;
 }
+a:hover { color: var(--color-secondary); }
 
-a:hover {
-  color: var(--color-secondary);
-}
-
-h1, h2, h3 {
-  font-weight: 700;
-  margin-bottom: 0.5em;
-  line-height: 1.2;
-}
-
-h1 { font-size: 2.5em; }
-h3 { color: var(--color-primary); }
-
-.muted {
-  color: var(--color-muted);
-}
-
-/* Layout Container */
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0;
 }
 
-/* --- Header & Navigation --- */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 0;
-  border-bottom: 2px solid #222;
+  .brand-sub {
+  font-size: 0.8rem;
+  color: var(--color-muted);
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-}
-
-/* Logo (Using a simple text 'T' for the current HTML structure) */
 .logo {
   font-size: 2.5rem;
   font-weight: bold;
@@ -127,20 +100,12 @@ h3 { color: var(--color-primary); }
   align-items: center;
   border-radius: var(--border-radius);
   margin-right: 0.5rem;
-  /* Simulating the logo's dual color with a box-shadow glow */
-  box-shadow: 0 0 15px rgba(255, 0, 85, 0.6);
+  box-shadow: 0 0 15px rgba(255,0,85,0.6);
 }
 
-.brand-title {
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: 1px;
-}
 
-.brand-sub {
-  font-size: 0.8rem;
-  color: var(--color-muted);
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:var(--bg);color:var(--text)}
 
 /* NAV */
 .header{
@@ -193,13 +158,14 @@ display:flex;
 
 /* MOBILE */
 .menu-btn{display:none;font-size:28px;cursor:pointer}
+
 @media(max-width:768px){
 .menu-btn{display:block}
 
 .nav{
 position:fixed;
 top:0;right:-100%;
-width:fixed;height:fixed;
+width:fixed%;height:fixed%;
 background:#020617;
 flex-direction:column;
 padding:50px 20px;
@@ -216,6 +182,64 @@ box-shadow:none;
 
 .dropdown-menu.open{display:flex}
 }
+
+
+/* HERO */
+.hero {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid #222;
+}
+
+.hero .left { flex: 3; }
+.hero .right { flex: 1; }
+
+/* ACCOUNT CARDS */
+.account-box {
+  background-color: var(--color-background);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  border-left: 5px solid var(--color-secondary);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  margin-bottom: 1.2rem;
+}
+.email { font-size: 1.2rem; font-weight: bold; }
+.password { margin-top: 10px; background: #111; padding: 10px; border-radius: 5px; display: none; color: #00ffa6; }
+.password-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 0.6rem 1.2rem;
+  background: var(--color-primary);
+  color: #000;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+.password-btn:hover { background: transparent; color: var(--color-primary); box-shadow: 0 0 12px rgba(0,255,255,0.5); }
+.show-more {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--color-primary);
+  color: #000;
+  text-align: center;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+.show-more:hover { background: transparent; color: var(--color-primary); box-shadow: 0 0 12px rgba(0,255,255,0.5); }
+
+
+
+/* FOOTER */
+.footer { text-align: center; padding: 1.5rem 0; margin-top: 2rem; border-top: 1px solid #222; color: var(--color-muted); }
+
 /* Cards */
 .card {
   background-color: var(--color-background);
