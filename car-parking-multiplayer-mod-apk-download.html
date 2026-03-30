@@ -56,6 +56,10 @@
   --font-family: 'Verdana', sans-serif;
   --border-radius: 8px;
   --max-width: 1100px;
+  --primary:#00ffff;
+  --secondary:#ff0055;
+  --bg:#05070f;
+  --text:#e5e7eb;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -67,54 +71,141 @@ body {
   line-height: 1.6;
 }
 
-img {
-  width: 32%;
-  border-radius: 20px;
-  margin: 15px 0;
-}
 a {
-  color: #ff0055;
+  color: var(--color-primary);
   text-decoration: none;
+  transition: 0.3s;
 }
-.button {
-  display: inline-block;
-  padding: 10px 15px;
-  background: #ff0055;
-  color: #fff;
-  border-radius: 5px;
-  margin: 10px 0;
-}
-
-h1, h2 {
-  color: #00ffff;
-}
-
-.brand-sub { font-size: 0.8rem; color: var(--color-muted); }
-a { color: var(--color-primary); text-decoration: none; transition: 0.3s; }
 a:hover { color: var(--color-secondary); }
-.muted { color: var(--color-muted); }
 
-.container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0;
+}
 
-/* HEADER */
-.header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; border-bottom: 2px solid #222; }
-.brand { display: flex; align-items: center; }
-.logo { font-size: 2.5rem; font-weight: bold; color: var(--color-primary); background: var(--color-secondary); width: 45px; height: 45px; display: flex; justify-content: center; align-items: center; border-radius: var(--border-radius); margin-right: 0.5rem; box-shadow: 0 0 15px rgba(255,0,85,0.6); }
-.nav { display: flex; }
-.nav a { padding: 0.5rem 1rem; font-weight: 600; text-transform: uppercase; border-bottom: 2px solid transparent; }
-.nav a:hover { border-bottom: 2px solid var(--color-primary); }
-.mobile-toggle { display: none; }
+  .brand-sub {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+.logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  background: var(--color-secondary);
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--border-radius);
+  margin-right: 0.5rem;
+  box-shadow: 0 0 15px rgba(255,0,85,0.6);
+}
+
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:var(--bg);color:var(--text)}
+
+/* NAV */
+.header{
+position:sticky;top:0;z-index:1000;
+display:flex;justify-content:space-between;align-items:center;
+padding:15px 20px;
+background:rgba(0,0,0,0.7);
+
+}
+
+.nav{display:flex;gap:25px;align-items:center}
+
+.nav a{
+color:#fff;text-decoration:none;
+transition:0.3s;position:relative;
+}
+
+.nav a:hover{
+transform:translateY(-3px) scale(1.1);
+text-shadow:0 0 10px var(--primary);
+}
+
+/* DROPDOWN */
+.dropdown{position:relative}
+
+.dropdown-menu{
+position:absolute;
+top:35px;
+left:0;
+background:#020617;
+border-radius:10px;
+padding:10px;
+display:none;
+flex-direction:column;
+min-width:200px;
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+.dropdown-menu a{
+padding:10px;border-radius:6px;
+}
+
+.dropdown-menu a:hover{
+background:rgba(0,255,255,0.1);
+}
+
+.dropdown:hover .dropdown-menu{
+display:flex;
+}
+
+/* MOBILE */
+.menu-btn{display:none;font-size:28px;cursor:pointer}
+
+@media(max-width:768px){
+.menu-btn{display:block}
+
+.nav{
+position:fixed;
+top:0;right:-100%;
+width:fixed%;height:fixed%;
+background:#020617;
+flex-direction:column;
+padding:50px 20px;
+transition:0.5s;
+}
+
+.nav.open{right:0}
+
+.dropdown-menu{
+position:static;
+display:none;
+box-shadow:none;
+}
+
+.dropdown-menu.open{display:flex}
+}
+
+
+/* HERO */
+.hero {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid #222;
+}
+
+.hero .left { flex: 3; }
+.hero .right { flex: 1; }
+
 
 /* FOOTER */
 .footer { text-align: center; padding: 1.5rem 0; margin-top: 2rem; border-top: 1px solid #222; color: var(--color-muted); }
 
-/* MOBILE */
-@media(max-width:768px){
-  .hero { flex-direction: column; }
-  .mobile-toggle { display: block; }
-  .nav { display:none; flex-direction:column; width:100%; }
-  .nav.open { display:flex; }
-  .nav a { text-align:center; padding:1rem 0; }
+img {
+  width: 32%;
+  border-radius: 20px;
+  margin: 15px 0;
 }
 
 .video-container {
@@ -174,18 +265,26 @@ a:hover { color: var(--color-secondary); }
       </div>
     </div>
 
-    <nav class="nav">
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<nav class="nav" id="nav">
       <a href="index.html">Home</a>
       <a href="cpm-free-account-giveaway.html">Giveaway</a>
       <a href="cpm-free-accounts.html">Account</a>
-      <a href="car-parking-multiplayer-mod-apk-download.html">Download CPM Mod APK</a>
-      <a href="how-to-install-game-guardian-&-virtual-space-on-android.html">Download GG</a>
+
+<div class="dropdown">
+<a href="#">Download ▾</a>
+<div class="dropdown-menu">
+     <a href="how-to-install-game-guardian-&-virtual-space-on-android.html">Download GG</a>
+     <a href="car-parking-multiplayer-mod-apk-download.html">Download Mod APK</a>
+</div>
+</div>
+
       <a href="contact-us.html">Contact</a>
       <a href="about-us.html">About</a>
       <a href="terms&conditions.html">Terms</a>
-    </nav>
+</nav>
 
-    <button class="mobile-toggle">☰</button>
   </header>
 
   <!-- HERO / INSTRUCTIONS -->
@@ -407,64 +506,32 @@ Yes, but using a secondary account is recommended.</p>
   </footer>
 
 <script>
-/* MOBILE MENU */
-const btn = document.querySelector('.mobile-toggle');
-const nav = document.querySelector('.nav');
-btn.addEventListener('click', () => nav.classList.toggle('open'));
-
-/* ACCOUNT SYSTEM */
-const accountsList = [
-    { email: "EMAIL: Teeneset160@gmail.com #160", password: "552244" },
-    { email: "EMAIL: Teeneset161@gmail.com #161", password: "883322" },
-    { email: "EMAIL: Teeneset162@gmail.com #162", password: "779911" },
-    { email: "EMAIL: Teeneset163@gmail.com #163", password: "443377" },
-    { email: "EMAIL: Teeneset164@gmail.com #164", password: "442299" },
-    { email: "EMAIL: Teeneset165@gmail.com #165", password: "772244" },
-    { email: "EMAIL: Teeneset166@gmail.com #166", password: "337744" },
-    { email: "EMAIL: Teeneset167@yzcalo.com #167", password: "996622" },
-    { email: "EMAIL: Teeneset168@yzcalo.com #168", password: "114499" },
-    { email: "EMAIL: Teeneset169@yzcalo.com #169", password: "778833" },
-    { email: "EMAIL: Teeneset170@yzcalo.com #170", password: "334477" },
-    { email: "EMAIL: Teeneset171@yzcalo.com #171", password: "886622" },
-    { email: "EMAIL: Teeneset172@yzcalo.com #172", password: "557722" },
-    { email: "EMAIL: Teeneset173@yzcalo.com #173", password: "661133" },
-    { email: "EMAIL: Teeneset0173@yzcalo.com #0173", password: "998822" },
-    { email: "EMAIL: Teeneset00173@yzcalo.com #00173", password: "661166" }
-];
-
-let loaded = 0;
-const batchSize = 5;
-const container = document.getElementById("accounts-container");
-
-function loadAccounts() {
-    for (let i = loaded; i < loaded + batchSize && i < accountsList.length; i++) {
-        const acc = accountsList[i];
-        const div = document.createElement("div");
-        div.className = "account-box";
-        div.innerHTML = `
-            <div class="email">📧 ${acc.email} </div>
-            <div class="password"><strong>Password:</strong> ${acc.password}</div>
-            <div class="password-btn" onclick="showPassword(this)">Show Password</div>
-        `;
-        container.appendChild(div);
-    }
-    loaded += batchSize;
-    if (loaded >= accountsList.length) {
-        document.getElementById("showMoreBtn").style.display = "none";
-    }
+function toggleMenu(){
+document.getElementById("nav").classList.toggle("open");
 }
 
-// Load first 5 on page load
-loadAccounts();
-
-// Show only one password at a time
-function showPassword(button) {
-    document.querySelectorAll('.password').forEach(p => p.style.display = 'none');
-    button.previousElementSibling.style.display = 'block';
+// mobile dropdown toggle
+document.querySelectorAll('.dropdown > a').forEach(btn=>{
+btn.addEventListener('click',e=>{
+if(window.innerWidth<768){
+e.preventDefault();
+btn.nextElementSibling.classList.toggle('open');
 }
-
-document.getElementById("showMoreBtn").addEventListener("click", loadAccounts);
+});
+});
 </script>
+
+<script>
+document.addEventListener("click", function(e) {
+  const nav = document.getElementById("nav");
+  const menuBtn = document.querySelector(".menu-btn");
+
+  // If click is NOT inside nav or button → close menu
+  if (!nav.contains(e.target) && !menuBtn.contains(e.target)) {
+    nav.classList.remove("open");
+  }
+});
+    </script>
 
 </body>
 </html>
