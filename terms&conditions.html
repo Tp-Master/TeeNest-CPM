@@ -46,8 +46,6 @@
 </script>
   
 <style>
-/* --- THEME: Teenest CPM Modern Dark Mode with Neon Accents --- */
-
 :root {
   --color-dark: #111111;
   --color-background: #191919;
@@ -63,6 +61,8 @@
   --bg:#05070f;
   --text:#e5e7eb;
 }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
   font-family: var(--font-family);
@@ -81,52 +81,14 @@ a:hover { color: var(--color-secondary); }
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 09 0781.32565rem;
+  padding: 0;
 }
 
-/* HERO */
-.hero {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-  padding-top: 3rem;
-  padding-bottom: 4rem;
-  border-bottom: 1px solid #222;
-}
-
-.hero .left { flex: 3; }
-.hero .right { flex: 1; }
-
-h1, h2, h3 {
-  font-weight: 700;
-  margin-bottom: 0.5em;
-  line-height: 1.2;
-}
-
-h1 { font-size: 2.5em; }
-h3 { color: var(--color-primary); }
-
-.muted {
+  .brand-sub {
+  font-size: 0.8rem;
   color: var(--color-muted);
 }
 
-
-
-/* --- Header & Navigation --- */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 0;
-  border-bottom: 2px solid #222;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-}
-
-/* Logo (Using a simple text 'T' for the current HTML structure) */
 .logo {
   font-size: 2.5rem;
   font-weight: bold;
@@ -139,36 +101,12 @@ h3 { color: var(--color-primary); }
   align-items: center;
   border-radius: var(--border-radius);
   margin-right: 0.5rem;
-  /* Simulating the logo's dual color with a box-shadow glow */
-  box-shadow: 0 0 15px rgba(255, 0, 85, 0.6);
-}
-
-.brand-title {
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: 1px;
-}
-
-.brand-sub {
-  font-size: 0.8rem;
-  color: var(--color-muted);
-}
-
-/* --- Main Content Sections --- */
-main {
-  padding: 2rem 0;
+  box-shadow: 0 0 15px rgba(255,0,85,0.6);
 }
 
 
-/* --- Footer --- */
-.footer {
-  text-align: center;
-  padding: 1.5rem 0;
-  margin-top: 2rem;
-  border-top: 1px solid #222;
-  color: var(--color-muted);
-  font-size: 0.9rem;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:var(--bg);color:var(--text)}
 
 /* NAV */
 .header{
@@ -221,13 +159,14 @@ display:flex;
 
 /* MOBILE */
 .menu-btn{display:none;font-size:28px;cursor:pointer}
+
 @media(max-width:768px){
 .menu-btn{display:block}
 
 .nav{
 position:fixed;
 top:0;right:-100%;
-width:fixed;height:fixed;
+width:fixed%;height:fixed%;
 background:#020617;
 flex-direction:column;
 padding:50px 20px;
@@ -244,6 +183,24 @@ box-shadow:none;
 
 .dropdown-menu.open{display:flex}
 }
+
+
+/* HERO */
+.hero {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid #222;
+}
+
+.hero .left { flex: 3; }
+.hero .right { flex: 1; }
+
+
+/* FOOTER */
+.footer { text-align: center; padding: 1.5rem 0; margin-top: 2rem; border-top: 1px solid #222; color: var(--color-muted); }
 
 </style>
 </head>
