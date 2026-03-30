@@ -82,6 +82,10 @@
   --font-family: 'Verdana', sans-serif;
   --border-radius: 8px;
   --max-width: 1100px;
+  --primary:#00ffff;
+  --secondary:#ff0055;
+  --bg:#05070f;
+  --text:#e5e7eb;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -111,17 +115,6 @@ a:hover { color: var(--color-secondary); }
   color: var(--color-muted);
 }
 
-/* HEADER */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 0;
-  border-bottom: 2px solid #222;
-}
-
-.brand { display: flex; align-items: center; }
-
 .logo {
   font-size: 2.5rem;
   font-weight: bold;
@@ -137,17 +130,86 @@ a:hover { color: var(--color-secondary); }
   box-shadow: 0 0 15px rgba(255,0,85,0.6);
 }
 
-/* NAVIGATION */
-.nav { display: flex; }
-.nav a {
-  padding: 0.5rem 1rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  border-bottom: 2px solid transparent;
-}
-.nav a:hover { border-bottom: 2px solid var(--color-primary); }
 
-.mobile-toggle { display: none; }
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:var(--bg);color:var(--text)}
+
+/* NAV */
+.header{
+position:sticky;top:0;z-index:1000;
+display:flex;justify-content:space-between;align-items:center;
+padding:15px 20px;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
+
+}
+
+.nav{display:flex;gap:25px;align-items:center}
+
+.nav a{
+color:#fff;text-decoration:none;
+transition:0.3s;position:relative;
+}
+
+.nav a:hover{
+transform:translateY(-3px) scale(1.1);
+text-shadow:0 0 10px var(--primary);
+}
+
+/* DROPDOWN */
+.dropdown{position:relative}
+
+.dropdown-menu{
+position:absolute;
+top:35px;
+left:0;
+background:#020617;
+border-radius:10px;
+padding:10px;
+display:none;
+flex-direction:column;
+min-width:200px;
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+.dropdown-menu a{
+padding:10px;border-radius:6px;
+}
+
+.dropdown-menu a:hover{
+background:rgba(0,255,255,0.1);
+}
+
+.dropdown:hover .dropdown-menu{
+display:flex;
+}
+
+/* MOBILE */
+.menu-btn{display:none;font-size:28px;cursor:pointer}
+
+@media(max-width:768px){
+.menu-btn{display:block}
+
+.nav{
+position:fixed;
+top:0;right:-100%;
+width:75%;height:1200%;
+background:#020617;
+flex-direction:column;
+padding:50px 20px;
+transition:0.5s;
+}
+
+.nav.open{right:0}
+
+.dropdown-menu{
+position:static;
+display:none;
+box-shadow:none;
+}
+
+.dropdown-menu.open{display:flex}
+}
 
 /* TOP BANNER */
 .top-banner img {
@@ -215,24 +277,6 @@ a:hover { color: var(--color-secondary); }
   color: var(--color-muted);
 }
 
-/* MOBILE */
-@media(max-width:768px){
-  .hero { flex-direction: column; text-align:center; }
-  .mobile-toggle { display: block; }
-  .nav { display:none; flex-direction:column; width:100%; }
-  .nav.open { display:flex; }
-  .nav a { text-align:center; padding:1rem 0; }
-}
-
-/* Specific styling for active link */
-.nav a[href="index.html"].active-page {
-  color: var(--color-primary);
-  border-bottom: 2px solid var(--color-primary);
-.nav a[href="giveaway.html"].active-page,
-.nav a[href="aboutus.html"].active-page,
-.nav a[href="contactus.html"].active-page,
-.nav a[href="terms&conditions.html"].active-page, 
-}
 
 </style>
 </head>
@@ -247,17 +291,26 @@ a:hover { color: var(--color-secondary); }
         <div class="brand-sub">CPM guides, giveaways & videos</div>
       </div>
     </div>
-    <nav class="nav">
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<nav class="nav" id="nav">
       <a href="index.html">Home</a>
       <a href="cpm-free-account-giveaway.html">Giveaway</a>
       <a href="cpm-free-accounts.html">Account</a>
-      <a href="car-parking-multiplayer-mod-apk-download.html">Download CPM Mod APK</a>
-      <a href="how-to-install-game-guardian-&-virtual-space-on-android.html">Download GG</a>
+
+<div class="dropdown">
+<a href="#">Download ▾</a>
+<div class="dropdown-menu">
+     <a href="how-to-install-game-guardian-&-virtual-space-on-android.html">Download GG</a>
+     <a href="car-parking-multiplayer-mod-apk-download.html">Download Mod APK</a>
+</div>
+</div>
+
       <a href="contact-us.html">Contact</a>
       <a href="about-us.html">About</a>
       <a href="terms&conditions.html">Terms</a>
-    </nav>
-    <button class="mobile-toggle" aria-hidden="true">☰</button>
+</nav>
+   
   </header>
 
   <div class="top-banner">
@@ -506,7 +559,7 @@ document.querySelectorAll(".faq-question").forEach(q => {
   <button id="floating-btn"><i class="fas fa-share-alt"></i> Share</button>
   <div id="floating-menu" style="display:none; flex-direction: column; gap: 10px; margin-top:10px;">
 
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank" class="share-link" style="background:#3b5998;">
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://carparkingmultiplayer.co.za" target="_blank" class="share-link" style="background:#3b5998;">
       <i class="fab fa-facebook"></i> Facebook
     </a>
 
@@ -514,28 +567,44 @@ document.querySelectorAll(".faq-question").forEach(q => {
       <i class="fab fa-instagram"></i> Instagram
     </a>
 
-    <a href="https://wa.me/?text=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank" class="share-link" style="background:#25D366;">
+    <a href="https://wa.me/?text=https://carparkingmultiplayer.co.za" target="_blank" class="share-link" style="background:#25D366;">
       <i class="fab fa-whatsapp"></i> WhatsApp
     </a>
 
-    <a href="https://twitter.com/intent/tweet?url=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank" class="share-link" style="background:#1DA1F2;">
+    <a href="https://twitter.com/intent/tweet?url=https://carparkingmultiplayer.co.za" target="_blank" class="share-link" style="background:#1DA1F2;">
       <i class="fab fa-x-twitter"></i> X
     </a>
 
-    <a href="https://t.me/share/url?url=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank" class="share-link" style="background:#0088cc;">
+    <a href="https://t.me/share/url?url=https://carparkingmultiplayer.co.za" target="_blank" class="share-link" style="background:#0088cc;">
       <i class="fab fa-telegram"></i> Telegram
     </a>
 
-    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank" class="share-link" style="background:#0077b5;">
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://carparkingmultiplayer.co.za/" target="_blank" class="share-link" style="background:#0077b5;">
       <i class="fab fa-linkedin"></i> LinkedIn
     </a>
 
-    <a href="https://www.reddit.com/submit?url=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank" class="share-link" style="background:#FF4500;">
+    <a href="https://www.reddit.com/submit?url=https://carparkingmultiplayer.co.za" target="_blank" class="share-link" style="background:#FF4500;">
       <i class="fab fa-reddit"></i> Reddit
     </a>
 
   </div>
 </div>
+
+<script>
+function toggleMenu(){
+document.getElementById("nav").classList.toggle("open");
+}
+
+// mobile dropdown toggle
+document.querySelectorAll('.dropdown > a').forEach(btn=>{
+btn.addEventListener('click',e=>{
+if(window.innerWidth<768){
+e.preventDefault();
+btn.nextElementSibling.classList.toggle('open');
+}
+});
+});
+</script>
 
 <style>
   #floating-btn {
@@ -582,7 +651,7 @@ document.querySelectorAll(".faq-question").forEach(q => {
   });
 
   function copyInstagramLink() {
-    const url = "https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html";
+    const url = "https://carparkingmultiplayer.co.za";
     navigator.clipboard.writeText(url).then(() => {
       alert("Link copied! Paste it in Instagram to share.");
     });
