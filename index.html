@@ -147,6 +147,16 @@ backdrop-filter:blur(10px);
 
 .nav{display:flex;gap:25px;align-items:center}
 
+.nav a{
+color:#fff;text-decoration:none;
+transition:0.3s;position:relative;
+}
+
+.nav a:hover{
+transform:translateY(-3px) scale(1.1);
+text-shadow:0 0 10px var(--primary);
+}
+
 /* DROPDOWN */
 .dropdown{position:relative}
 
@@ -184,8 +194,8 @@ display:flex;
 .nav{
 position:fixed;
 top:0;
-right:-100%;
-width:fixed;
+right:-fixed%;
+width:fixed%;
 height:fixed; /* FIX */
 background:#020617;
 flex-direction:column;
@@ -203,6 +213,43 @@ box-shadow:none;
 
 .dropdown-menu.open{display:flex}
 }
+
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-dark);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: 0.3s;
+}
+a:hover { color: var(--color-secondary); }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+  .brand-sub {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  border-bottom: 2px solid #222;
+}
+
+.brand { display: flex; align-items: center; }
 
 .logo {
   font-size: 2.5rem;
@@ -289,13 +336,19 @@ box-shadow:none;
 /* MOBILE */
 @media(max-width:768px){
   .hero { flex-direction: column; text-align:center; }
-  .mobile-toggle { display: block; }
+  .nav { display:none; flex-direction:column; width:fixed; }
+  .nav.open { display:flex; }
+  .nav a { text-align:center; padding:fixed 0; }
 }
 
 /* Specific styling for active link */
-.nav a.active-page {
+.nav a[href="index.html"].active-page {
   color: var(--color-primary);
   border-bottom: 2px solid var(--color-primary);
+.nav a[href="giveaway.html"].active-page,
+.nav a[href="aboutus.html"].active-page,
+.nav a[href="contactus.html"].active-page,
+.nav a[href="terms&conditions.html"].active-page, 
 }
 
 </style>
@@ -580,7 +633,7 @@ document.querySelectorAll(".faq-question").forEach(q => {
   <button id="floating-btn"><i class="fas fa-share-alt"></i> Share</button>
   <div id="floating-menu" style="display:none; flex-direction: column; gap: 10px; margin-top:10px;">
 
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https://carparkingmultiplayer.co.za/" target="_blank" class="share-link" style="background:#3b5998;">
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank" class="share-link" style="background:#3b5998;">
       <i class="fab fa-facebook"></i> Facebook
     </a>
 
@@ -588,23 +641,23 @@ document.querySelectorAll(".faq-question").forEach(q => {
       <i class="fab fa-instagram"></i> Instagram
     </a>
 
-    <a href="https://wa.me/?text=https://carparkingmultiplayer.co.za/" target="_blank" class="share-link" style="background:#25D366;">
+    <a href="https://wa.me/?text=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank" class="share-link" style="background:#25D366;">
       <i class="fab fa-whatsapp"></i> WhatsApp
     </a>
 
-    <a href="https://twitter.com/intent/tweet?url=https://carparkingmultiplayer.co.za/" target="_blank" class="share-link" style="background:#1DA1F2;">
+    <a href="https://twitter.com/intent/tweet?url=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank" class="share-link" style="background:#1DA1F2;">
       <i class="fab fa-x-twitter"></i> X
     </a>
 
-    <a href="https://t.me/share/url?url=https://carparkingmultiplayer.co.za/" target="_blank" class="share-link" style="background:#0088cc;">
+    <a href="https://t.me/share/url?url=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank" class="share-link" style="background:#0088cc;">
       <i class="fab fa-telegram"></i> Telegram
     </a>
 
-    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://carparkingmultiplayer.co.za/" target="_blank" class="share-link" style="background:#0077b5;">
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank" class="share-link" style="background:#0077b5;">
       <i class="fab fa-linkedin"></i> LinkedIn
     </a>
 
-    <a href="https://www.reddit.com/submit?url=https://carparkingmultiplayer.co.za/" target="_blank" class="share-link" style="background:#FF4500;">
+    <a href="https://www.reddit.com/submit?url=https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html" target="_blank" class="share-link" style="background:#FF4500;">
       <i class="fab fa-reddit"></i> Reddit
     </a>
 
@@ -656,7 +709,7 @@ document.querySelectorAll(".faq-question").forEach(q => {
   });
 
   function copyInstagramLink() {
-    const url = "https://carparkingmultiplayer.co.za/";
+    const url = "https://carparkingmultiplayer.co.za/Cpm%20-%20Plug%20-%20Free%20CPM%20Account.html";
     navigator.clipboard.writeText(url).then(() => {
       alert("Link copied! Paste it in Instagram to share.");
     });
