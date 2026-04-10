@@ -286,6 +286,39 @@ button:hover {
   box-shadow: 0 0 15px rgba(0,255,255,0.5);
 }
 
+/* COUNTDOWN BOX */
+.countdown-box{
+  display:flex;
+  justify-content:center;
+  margin:20px 0;
+}
+
+.countdown{
+  background:#111;
+  padding:1px 50px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 0 20px rgba(0,255,255,0.3);
+}
+
+.countdown h3{
+  margin-bottom:0px;
+  color:#aaa;
+}
+
+#timer{
+  font-size:25px;
+  font-weight:bold;
+  color:#00ffff;
+}
+
+/* CARD */
+.card{
+  background:#191919;
+  padding:20px;
+  margin:15px;
+  border-radius:10px;
+}
 
 </style>
  
@@ -344,6 +377,14 @@ button:hover {
   <p class="muted" style="text-align:center; margin-bottom:1.5rem;">
 Welcome to Car Parking Multiplayer accounts giveaway page! Here, you can claim  CPM free accounts with ready-to-use login credentials. These accounts allow you to play the game immediately, unlock special cars, and enjoy multiplayer features without spending any money.
   </p>
+  
+  <!-- ✅ COUNTDOWN -->
+<div class="countdown-box">
+  <div class="countdown">
+    <h3>Next CPM Account Update In</h3>
+    <div id="timer">00:00:00</div>
+  </div>
+</div>
   
    <div style="text-align:center; padding:18px; margin:20px 0;">
   <p style="font-size:25px; font-weight:bold; margin-bottom:8px;">
@@ -564,6 +605,49 @@ document.addEventListener("click", function(e) {
   }
 });
     </script>
+    
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  function getTargetTime() {
+    const now = new Date();
+    const target = new Date();
+
+    target.setHours(16,0,0,0); // 4PM SA
+
+    if(now > target){
+      target.setDate(target.getDate()+1);
+    }
+
+    return target;
+  }
+
+  let targetTime = getTargetTime();
+
+  function updateTimer(){
+    const now = new Date();
+    const diff = Math.floor((targetTime - now)/1000);
+
+    if(diff <= 0){
+      targetTime = getTargetTime();
+      return;
+    }
+
+    const h = Math.floor(diff/3600);
+    const m = Math.floor((diff%3600)/60);
+    const s = diff%60;
+
+    document.getElementById("timer").innerText =
+      String(h).padStart(2,'0') + ":" +
+      String(m).padStart(2,'0') + ":" +
+      String(s).padStart(2,'0');
+  }
+
+  setInterval(updateTimer,1000);
+  updateTimer();
+
+});
+</script>
 
 </body>
 </html>
