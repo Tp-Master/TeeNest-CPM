@@ -248,6 +248,17 @@ img {
 }
 .btn:hover { background: transparent; color: var(--color-primary); box-shadow: 0 0 15px rgba(0,255,255,0.5); }
 .btn.small { padding: 0.5rem 1rem; }
+
+#google_translate_element{
+position:fixed;
+bottom:0px;
+right:0px;
+z-index:5555;
+background:#111827;
+padding:5px;
+border-radius:12px;
+}
+    
 </style>
 
 </head>
@@ -407,7 +418,7 @@ Yes, but using a secondary account is recommended.</p>
 <p>Download now and experience the game without limits.</p>    
 
 <!-- FLOATING SHARE BUTTON WITH COLORS AND TEXT -->
-<div id="floating-share" style="position: fixed; right: 20px; bottom: 50px; z-index: 9999;">
+<div id="floating-share" style="position: fixed; right: 20px; bottom: 80px; z-index: 9999;">
   <button id="floating-btn"><i class="fas fa-share-alt"></i> Share</button>
   <div id="floating-menu" style="display:none; flex-direction: column; gap: 10px; margin-top:10px;">
 
@@ -535,6 +546,20 @@ document.addEventListener("click", function(e) {
   }
 });
     </script>
+
+<div id="google_translate_element"></div>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+new google.translate.TranslateElement({
+pageLanguage: 'en'
+}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript"
+src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>        
 
 </body>
 </html>
