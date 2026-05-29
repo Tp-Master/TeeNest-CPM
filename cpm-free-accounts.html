@@ -415,50 +415,146 @@ or watch gameplay on
 </section>
 
 <!-- FAQ -->
-<section>
-<h2 style="color:var(--color-primary); margin-top:1rem; text-align:center; margin-bottom:1px;">CPM Free Account FAQs</h2>
+<section class="faq-container">
 
-<details><summary>What is a CPM free account?</summary>
-<p>A shared account for Car Parking Multiplayer with unlocked features.</p>
-</details>
+<h2 style="text-align:center; color:var(--color-primary); margin-top:1rem;">
+❓ CPM Free Account FAQs
+</h2>
 
-<details><summary>Why is the account not working?</summary>
-<p>Another player may already be using it.</p>
-</details>
+<div class="faq-item">
+<div class="faq-question">1. What is a CPM free account?</div>
+<div class="faq-answer">
+A shared account for Car Parking Multiplayer with unlocked features.
+</div>
+</div>
 
-<details><summary>Are car parking free accounts safe?</summary>
-<p>Yes, but avoid using personal info.</p>
-</details>
+<div class="faq-item">
+<div class="faq-question">2. Why is the account not working?</div>
+<div class="faq-answer">
+Another player may already be using it.
+</div>
+</div>
 
-<details><summary>Can I change password?</summary>
-<p>No, these are shared accounts.</p>
-</details>
+<div class="faq-item">
+<div class="faq-question">3. Are car parking free accounts safe?</div>
+<div class="faq-answer">
+Yes, but avoid using personal info.
+</div>
+</div>
 
-<details><summary>Do accounts include money?</summary>
-<p>Yes, most include in-game currency.</p>
-</details>
+<div class="faq-item">
+<div class="faq-question">4. Can I change password?</div>
+<div class="faq-answer">
+No, these are shared accounts.
+</div>
+</div>
 
-<details><summary>How often are accounts updated?</summary>
-<p>Daily or frequently.</p>
-</details>
+<div class="faq-item">
+<div class="faq-question">5. Do accounts include money?</div>
+<div class="faq-answer">
+Yes, most include in-game currency.
+</div>
+</div>
 
-<details><summary>Can I use on iOS?</summary>
-<p>Yes.</p>
-</details>
+<div class="faq-item">
+<div class="faq-question">6. How often are accounts updated?</div>
+<div class="faq-answer">
+Daily or frequently.
+</div>
+</div>
 
-<details><summary>Best alternative?</summary>
-<p>Mod APK or scripts.</p>
-</details>
+<div class="faq-item">
+<div class="faq-question">7. Can I use on iOS?</div>
+<div class="faq-answer">
+Yes.
+</div>
+</div>
 
-<details><summary>Will my main account get banned?</summary>
-<p>There is always risk with unofficial methods.</p>
-</details>
+<div class="faq-item">
+<div class="faq-question">8. Best alternative?</div>
+<div class="faq-answer">
+Mod APK or scripts.
+</div>
+</div>
 
-<details><summary>Can I keep the account?</summary>
-<p>No, they are public accounts.</p>
-</details>
+<div class="faq-item">
+<div class="faq-question">9. Will my main account get banned?</div>
+<div class="faq-answer">
+There is always risk with unofficial methods.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">10. Can I keep the account?</div>
+<div class="faq-answer">
+No, they are public accounts.
+</div>
+</div>
 
 </section>
+
+<style>
+.faq-container{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+.faq-item{
+    border-bottom:1px solid #334155;
+    padding:15px 0;
+}
+
+.faq-question{
+    cursor:pointer;
+    font-weight:bold;
+    font-size:14px;
+    color:var(--text);
+    position:relative;
+    padding-right:20px;
+}
+
+.faq-question::after{
+    content:"+";
+    position:absolute;
+    right:0;
+    top:0;
+    font-size:18px;
+    transition:0.3s;
+}
+
+.faq-item.active .faq-question::after{
+    content:"−";
+}
+
+.faq-answer{
+    display:none;
+    padding-top:10px;
+    color:var(--color-muted);
+    font-size:13px;
+    line-height:1.6;
+}
+
+.faq-item.active .faq-answer{
+    display:block;
+}
+</style>
+
+<script>
+const faqItems = document.querySelectorAll(".faq-item");
+
+faqItems.forEach(item => {
+
+    const question = item.querySelector(".faq-question");
+
+    question.addEventListener("click", () => {
+
+        item.classList.toggle("active");
+
+    });
+
+});
+</script>
 
   <!-- HELP / CONTACT SECTION BELOW ACCOUNTS -->
   <section class="hero" style="flex-direction:column; padding-top:2rem; padding-bottom:2rem;">
