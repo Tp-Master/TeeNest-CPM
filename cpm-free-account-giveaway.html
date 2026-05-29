@@ -193,8 +193,6 @@ box-shadow:none;
 .hero .left { flex: 3; }
 .hero .right { flex: 1; }
 
-
-
 /* BANNER */
 .top-banner {
   display: flex;
@@ -213,19 +211,6 @@ box-shadow:none;
   color: var(--color-muted);
 }
   
-/* CARD STYLING */
-.card {
-  background-color: var(--color-background);
-  padding: 1.5rem;
-  border-radius: var(--border-radius);
-  border-left: 5px solid var(--color-secondary);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  margin: 1rem auto;
-  max-width: 4000px;
-  text-align: left;
-}
-.card .detail { margin: 0.5rem 0; }
-
 /* FUN GATE / GAME */
 #funGate {
   position: fixed;
@@ -261,6 +246,37 @@ box-shadow:none;
 #player.animate {
   transform: scale(1.2);
 }
+
+button {
+  margin-top: 15px;
+  padding: 12px 20px;
+  border-radius: var(--border-radius);
+  border: none;
+  background: var(--color-primary);
+  color: var(--color-dark);
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+button:hover {
+  background: transparent;
+  color: var(--color-primary);
+  box-shadow: 0 0 15px rgba(0,255,255,0.5);
+}  
+  
+/* CARD STYLING */
+.card {
+  background-color: var(--color-background);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  border-left: 5px solid var(--color-secondary);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  margin: 1rem auto;
+  max-width: 4000px;
+  text-align: left;
+}
+.card .detail { margin: 0.5rem 0; }
 
 button {
   margin-top: 15px;
@@ -314,7 +330,21 @@ z-index:5555;
 background:#111827;
 padding:5px;
 border-radius:12px;
-}    
+}
+
+.password-box{
+  display:none;
+  margin-top:15px;
+  padding:12px;
+  border-radius:10px;
+  background:#111827;
+  color:#00ffff;
+  font-weight:bold;
+}
+
+.show-pass-btn{
+  margin-top:15px;
+}
 
 </style>
  
@@ -392,27 +422,50 @@ This page is updated regularly for users searching for <strong>CPM free account 
 
 <h2 style="color:var(--color-primary); margin-top:1rem; text-align:center; margin-bottom:40px;">Latest Car Parking Multiplayer Free Accounts:</h2>
 
+
+  
   <!-- ACCOUNT CARD -->
-  <div class="card" class="update" style="text-align:center;">
-    <h2>CPM Free Account 1 </h2>
-    <div class="detail">📧 <strong>Email:</strong> Tee102@yzcalo.com</div>
-    <div class="detail">🔑 <strong>Password:</strong> 771144</div>
+<div class="card account-card" style="text-align:center;">
+  <h2>CPM Free Account 1</h2>
+  <div class="detail">
+    📧 <strong>Email:</strong> Tee102@yzcalo.com
   </div>
+  <button class="show-pass-btn">
+    Show Password
+  </button>
+  <div class="password-box">
+    🔑 <strong>Password:</strong> 771144
+  </div>
+</div>
 
 <!-- ACCOUNT CARD -->
-  <div class="card" class="update" style="text-align:center;">
-    <h2>CPM Free Account 2 </h2>
-    <div class="detail">📧 <strong>Email:</strong> Tee103@yzcalo.com</div>
-    <div class="detail">🔑 <strong>Password:</strong> 446655</div>
+<div class="card account-card" style="text-align:center;">
+  <h2>CPM Free Account 2</h2>
+  <div class="detail">
+    📧 <strong>Email:</strong> Tee103@yzcalo.com
   </div>
-    
+  <button class="show-pass-btn">
+    Show Password
+  </button>
+  <div class="password-box">
+    🔑 <strong>Password:</strong> 446655
+  </div>
+</div>
+
 <!-- ACCOUNT CARD -->
-  <div class="card" class="update" style="text-align:center;">
-    <h2>CPM Free Account 3 </h2>
-    <div class="detail">📧 <strong>Email:</strong> Tee104@yzcalo.com</div>
-    <div class="detail">🔑 <strong>Password:</strong> 117755</div>
+<div class="card account-card" style="text-align:center;">
+  <h2>CPM Free Account 3</h2>
+  <div class="detail">
+    📧 <strong>Email:</strong> Tee104@yzcalo.com
   </div>
-    
+  <button class="show-pass-btn">
+    Show Password
+  </button>
+  <div class="password-box">
+    🔑 <strong>Password:</strong> 117755
+  </div>
+</div>
+
 <!-- FUN GATE -->
 <div id="funGate">
   <h2>🏎 Click Fast!</h2>
@@ -423,7 +476,6 @@ This page is updated regularly for users searching for <strong>CPM free account 
   <button id="clickBtn">Click Me!</button>
   <p id="progressText">Progress: 0%</p>
 </div>
-
 
 <aside class="right">
       <div class="card" class="update" style="text-align:center;">
@@ -1036,7 +1088,56 @@ themeBtn.addEventListener("click", () => {
   }
 
 });
-</script>          
+</script> 
+
+<script>
+const buttons = document.querySelectorAll(".show-pass-btn");
+
+buttons.forEach(btn => {
+
+  btn.addEventListener("click", () => {
+
+    // Hide all passwords first
+    document.querySelectorAll(".password-box").forEach(box => {
+      box.style.display = "none";
+    });
+
+    // Reset all button text
+    document.querySelectorAll(".show-pass-btn").forEach(b => {
+      b.innerText = "Show Password";
+    });
+
+    // Show clicked one
+    const passwordBox =
+      btn.nextElementSibling;
+
+    passwordBox.style.display = "block";
+
+    btn.innerText = "Password Visible";
+
+  });
+
+});
+
+// Hide when clicking outside
+document.addEventListener("click", function(e){
+
+  if(
+    !e.target.closest(".account-card")
+  ){
+
+    document.querySelectorAll(".password-box").forEach(box => {
+      box.style.display = "none";
+    });
+
+    document.querySelectorAll(".show-pass-btn").forEach(b => {
+      b.innerText = "Show Password";
+    });
+
+  }
+
+});
+</script>
 
 </body>
 </html>
