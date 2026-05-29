@@ -754,5 +754,61 @@ pageLanguage: 'en'
 src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
 </script>
 
+<!-- Theme Toggle Button -->
+<button id="themeToggle">🌙 Dark Mode</button>
+
+<style>
+/* Default Light Theme */
+body {
+    background: #ffffff;
+    color: #111111;
+    transition: 0.3s;
+}
+
+/* Dark Theme */
+body.dark-mode {
+    background: #121212;
+    color: #ffffff;
+}
+
+/* Button Style */
+#themeToggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    background: #222;
+    color: white;
+    z-index: 9999;
+}
+</style>
+
+<script>
+const toggleBtn = document.getElementById("themeToggle");
+
+// Load saved theme
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+    toggleBtn.innerHTML = "☀️ Light Mode";
+}
+
+// Toggle theme
+toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+        toggleBtn.innerHTML = "☀️ Light Mode";
+    } else {
+        localStorage.setItem("theme", "light");
+        toggleBtn.innerHTML = "🌙 Dark Mode";
+    }
+});
+</script>
+
 </body>
 </html>
