@@ -518,37 +518,147 @@ document.querySelectorAll(".faq-question").forEach(q => {
 });
 </script>
 
-<!-- FAQ SCHEMA -->
-<script type="application/ld+json">
-{
-"@context":"https://schema.org",
-"@type":"FAQPage",
-"mainEntity":[
+<!-- FAQ -->
+<section class="faq-container">
 
-{"@type":"Question","name":"What is Car Parking Multiplayer?","acceptedAnswer":{"@type":"Answer","text":"Car Parking Multiplayer is an open-world driving simulator with multiplayer features, car customization, and realistic physics."}},
+<h2 style="text-align:center; color:var(--color-primary); margin-top:1rem;">
+❓ Car Parking Multiplayer Script FAQs
+</h2>
 
-{"@type":"Question","name":"Is Car Parking Multiplayer free?","acceptedAnswer":{"@type":"Answer","text":"Yes, the game is free to play on Android and iOS with optional in-app purchases."}},
+<div class="faq-item">
+<div class="faq-question">1. What is a Car Parking Multiplayer script?</div>
+<div class="faq-answer">
+A CPM script is a Lua script used with Game Guardian to unlock features like money, coins, and mod menus.
+</div>
+</div>
 
-{"@type":"Question","name":"Can I play Car Parking Multiplayer offline?","acceptedAnswer":{"@type":"Answer","text":"Yes, offline mode is available, but multiplayer requires internet."}},
+<div class="faq-item">
+<div class="faq-question">2. Does CPM script work on Android 14 and Android 15?</div>
+<div class="faq-answer">
+Yes, the latest Car Parking Multiplayer scripts support Android 14, 15, and newer versions with the correct setup.
+</div>
+</div>
 
-{"@type":"Question","name":"What is the size of the game?","acceptedAnswer":{"@type":"Answer","text":"The game size is around 800MB to 1.5GB depending on your device."}},
+<div class="faq-item">
+<div class="faq-question">3. Do I need Game Guardian to use CPM scripts?</div>
+<div class="faq-answer">
+Yes, Game Guardian is required to execute Car Parking Multiplayer Lua scripts.
+</div>
+</div>
 
-{"@type":"Question","name":"How to download Car Parking Multiplayer APK?","acceptedAnswer":{"@type":"Answer","text":"You can download it from the Google Play Store or trusted APK websites."}},
+<div class="faq-item">
+<div class="faq-question">4. Can I get unlimited money using CPM scripts?</div>
+<div class="faq-answer">
+Yes, many scripts include unlimited money, gold coins, and unlocked features.
+</div>
+</div>
 
-{"@type":"Question","name":"Is Car Parking Multiplayer safe to install?","acceptedAnswer":{"@type":"Answer","text":"Yes, if downloaded from official or trusted sources, it is safe to install."}},
+<div class="faq-item">
+<div class="faq-question">5. Why is my Car Parking script not working?</div>
+<div class="faq-answer">
+Your script may be outdated after a new game update. Download the latest CPM script version.
+</div>
+</div>
 
-{"@type":"Question","name":"Does the game have multiplayer mode?","acceptedAnswer":{"@type":"Answer","text":"Yes, you can play with real players, chat, and trade cars online."}},
+<div class="faq-item">
+<div class="faq-question">6. Are Car Parking Multiplayer scripts safe?</div>
+<div class="faq-answer">
+Scripts are generally safe if downloaded from trusted sources, but always avoid using your main account.
+</div>
+</div>
 
-{"@type":"Question","name":"Can I customize cars?","acceptedAnswer":{"@type":"Answer","text":"Yes, the game allows full car customization including engine, suspension, and appearance."}},
+<div class="faq-item">
+<div class="faq-question">7. Can I use CPM scripts without root?</div>
+<div class="faq-answer">
+Yes, you can use scripts without root by using Virtual Space or compatible methods.
+</div>
+</div>
 
-{"@type":"Question","name":"What devices support the game?","acceptedAnswer":{"@type":"Answer","text":"The game supports Android smartphones, tablets, iPhones, and iPads."}},
+<div class="faq-item">
+<div class="faq-question">8. How often are CPM scripts updated?</div>
+<div class="faq-answer">
+Scripts are usually updated after every major Car Parking Multiplayer game update.
+</div>
+</div>
 
-{"@type":"Question","name":"Why is Car Parking Multiplayer so popular?","acceptedAnswer":{"@type":"Answer","text":"It is popular because of its realistic gameplay, open world, and multiplayer interaction features."}}
+<div class="faq-item">
+<div class="faq-question">9. Can I play online with CPM scripts?</div>
+<div class="faq-answer">
+Yes, online gameplay may work, but using a secondary account is recommended for safety.
+</div>
+</div>
 
-]
+<div class="faq-item">
+<div class="faq-question">10. What is the best CPM script version?</div>
+<div class="faq-answer">
+The best version is always the latest updated script compatible with the current Car Parking Multiplayer release.
+</div>
+</div>
+
+</section>
+
+<style>
+.faq-container{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
 }
+
+.faq-item{
+    border-bottom:1px solid #334155;
+    padding:15px 0;
+}
+
+.faq-question{
+    cursor:pointer;
+    font-weight:bold;
+    font-size:14px;
+    color:var(--text);
+    position:relative;
+    padding-right:20px;
+}
+
+.faq-question::after{
+    content:"+";
+    position:absolute;
+    right:0;
+    top:0;
+    font-size:18px;
+    transition:0.3s;
+}
+
+.faq-item.active .faq-question::after{
+    content:"−";
+}
+
+.faq-answer{
+    display:none;
+    padding-top:10px;
+    color:var(--color-muted);
+    font-size:13px;
+    line-height:1.6;
+}
+
+.faq-item.active .faq-answer{
+    display:block;
+}
+</style>
+
+<script>
+const faqItems = document.querySelectorAll(".faq-item");
+
+faqItems.forEach(item => {
+
+    const question = item.querySelector(".faq-question");
+
+    question.addEventListener("click", () => {
+
+        item.classList.toggle("active");
+
+    });
+
+});
 </script>
-<!-- FAQ SECTION END -->
 
     <!-- FLOATING SHARE BUTTON WITH COLORS AND TEXT -->
 <div id="floating-share" style="position: fixed; right: 20px; bottom: 80px; z-index: 9999;">
