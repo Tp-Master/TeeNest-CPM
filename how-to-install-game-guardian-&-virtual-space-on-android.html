@@ -553,28 +553,49 @@ Official Android Help Center
 </section>
 
 <style>
-.faq-container {
-    max-width: 9900px;
-    margin: auto;
-    padding: 20px;
-    color: white;
+.faq-container{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
 }
 
-.faq-item {
-    border-bottom: 1px solid #334155;
-    padding: 15px 0;
+.faq-item{
+    border-bottom:1px solid #334155;
+    padding:15px 0;
 }
 
-.faq-question {
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 13px;
+.faq-question{
+    cursor:pointer;
+    font-weight:bold;
+    font-size:14px;
+    color:var(--text);
+    position:relative;
+    padding-right:20px;
 }
 
-.faq-answer {
-    display: none;
-    padding-top: 10px;
-    color: #cbd5f5;
+.faq-question::after{
+    content:"+";
+    position:absolute;
+    right:0;
+    top:0;
+    font-size:18px;
+    transition:0.3s;
+}
+
+.faq-item.active .faq-question::after{
+    content:"−";
+}
+
+.faq-answer{
+    display:none;
+    padding-top:10px;
+    color:var(--color-muted);
+    font-size:13px;
+    line-height:1.6;
+}
+
+.faq-item.active .faq-answer{
+    display:block;
 }
 </style>
 
