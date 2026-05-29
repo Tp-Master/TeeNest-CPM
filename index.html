@@ -256,7 +256,7 @@ box-shadow:none;
 .hero .right { flex: 1; }
 
 .btn {
-  padding: 0.75rem 1.5rem;
+  padding: 0.3rem 1.5rem;
   margin-top: 1rem;
   border-radius: var(--border-radius);
   font-weight: bold;
@@ -271,7 +271,7 @@ box-shadow:none;
   color: var(--color-primary);
   box-shadow: 0 0 15px rgba(0,255,255,0.5);
 }
-.btn.small { padding: 0.5rem 1rem; }
+.btn.small { padding: 0.3rem 1rem; }
 
 .card {
   background-color: var(--color-background);
@@ -540,28 +540,29 @@ border-radius:12px;
 </div>
 
 <style>
-.faq-container {
-    max-width: 9900px;
-    margin: auto;
-    padding: 20px;
-    color: white;
+.faq-container{
+    max-width:9900px;
+    margin:auto;
+    padding:20px;
 }
 
-.faq-item {
-    border-bottom: 1px solid #334155;
-    padding: 15px 0;
+.faq-item{
+    border-bottom:1px solid #334155;
+    padding:15px 0;
 }
 
-.faq-question {
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 13px;
+.faq-question{
+    cursor:pointer;
+    font-weight:bold;
+    font-size:15px;
+    color:var(--text);
 }
 
-.faq-answer {
-    display: none;
-    padding-top: 10px;
-    color: #cbd5f5;
+.faq-answer{
+    display:none;
+    padding-top:10px;
+    color:var(--color-muted);
+    line-height:1.6;
 }
 </style>
 
@@ -758,29 +759,43 @@ src="https://translate.google.com/translate_a/element.js?cb=googleTranslateEleme
 <button id="themeToggle">🌙 Dark Mode</button>
 
 <style>
-/* Default Light Theme */
-body {
-    background: #ffffff;
-    color: #111111;
-    transition: 0.3s;
+/* LIGHT THEME */
+body.light-mode{
+  --bg:#ffffff;
+  --text:#111111;
+  --color-background:#f3f4f6;
+  --color-dark:#ffffff;
+  --color-muted:#555555;
 }
 
-/* Dark Theme */
-body.dark-mode {
-    background: #121212;
-    color: #ffffff;
+/* DARK THEME */
+body.dark-mode{
+  --bg:#05070f;
+  --text:#e5e7eb;
+  --color-background:#191919;
+  --color-dark:#111111;
+  --color-muted:#aaaaaa;
+}
+
+/* APPLY VARIABLES */
+body{
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s ease, color 0.3s ease;
+  margin:0;
+  font-family:Arial, sans-serif;
 }
 
 /* Button Style */
 #themeToggle {
     position: fixed;
-    top: 15px;
+    top: 10px;
     right: 15px;
     padding: 10px 15px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 9px;
     background: #222;
     color: white;
     z-index: 9999;
@@ -788,25 +803,48 @@ body.dark-mode {
 </style>
 
 <script>
-const toggleBtn = document.getElementById("themeToggle");
+const themeBtn = document.getElementById("themeToggle");
 
-// Load saved theme
-if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark-mode");
-    toggleBtn.innerHTML = "☀️ Light Mode";
+// DEFAULT THEME
+if(!localStorage.getItem("theme")){
+  localStorage.setItem("theme","dark");
 }
 
-// Toggle theme
-toggleBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
+// LOAD SAVED THEME
+const savedTheme = localStorage.getItem("theme");
 
-    if (document.body.classList.contains("dark-mode")) {
-        localStorage.setItem("theme", "dark");
-        toggleBtn.innerHTML = "☀️ Light Mode";
-    } else {
-        localStorage.setItem("theme", "light");
-        toggleBtn.innerHTML = "🌙 Dark Mode";
-    }
+// REMOVE BOTH FIRST
+document.body.classList.remove("light-mode","dark-mode");
+
+// ADD SAVED THEME
+document.body.classList.add(savedTheme + "-mode");
+
+// BUTTON LABEL
+themeBtn.innerHTML =
+  savedTheme === "dark"
+    ? "☀️ Light Mode"
+    : "🌙 Dark Mode";
+
+// TOGGLE
+themeBtn.addEventListener("click", () => {
+
+  if(document.body.classList.contains("dark-mode")){
+
+    document.body.classList.replace("dark-mode","light-mode");
+
+    localStorage.setItem("theme","light");
+
+    themeBtn.innerHTML = "🌙 Dark Mode";
+
+  } else {
+
+    document.body.classList.replace("light-mode","dark-mode");
+
+    localStorage.setItem("theme","dark");
+
+    themeBtn.innerHTML = "☀️ Light Mode";
+  }
+
 });
 </script>
 
