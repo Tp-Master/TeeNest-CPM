@@ -315,16 +315,6 @@ box-shadow:none;
 .nav a[href="terms&conditions.html"].active-page, 
 }
 
-#google_translate_element{
-position:fixed;
-bottom:0px;
-right:0px;
-z-index:5555;
-background:#111827;
-padding:10px;
-border-radius:12px;
-}
-
 </style>
 </head>
 <body>
@@ -739,16 +729,6 @@ document.addEventListener("click", function(e) {
 <script>
 const btn = document.querySelector('.mobile-toggle');
 btn && btn.addEventListener('click', ()=> nav.classList.toggle('open'));
-</script>
-
-<div id="google_translate_element"></div>
-
-<script type="text/javascript">
-function googleTranslateElementInit() {
-new google.translate.TranslateElement({
-pageLanguage: 'en'
-}, 'google_translate_element');
-}
 </script>
 
 <script type="text/javascript"
