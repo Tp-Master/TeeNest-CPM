@@ -262,20 +262,15 @@ button:hover {
   margin-top:15px;
 }
 
-.top-banner {
-  width: 100%;
-  aspect-ratio: 721 / 324;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  overflow: hidden;
-}
-
+/* TOP BANNER */
 .top-banner img {
   width: 100%;
-  height: 100%;
+  height: auto;
   display: block;
-  object-fit: cover;
   border-radius: 10px;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  object-fit: cover;
 }
 
 </style>
@@ -528,17 +523,6 @@ This page is updated regularly for users searching for <strong>CPM account givea
 
 .comparison-box tr:hover{
   background:#2a2a2a;
-}
-
-/* TOP BANNER */
-.top-banner img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 10px;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  object-fit: cover;
 }
 
 </style>
@@ -809,36 +793,6 @@ Players search for <strong>car parking multiplayer account giveaway</strong> to 
   </p>
   <p style="font-size:12px; color:#aaa;">&copy; 2026 CarParkingMultiplayer.co.za | All rights reserved</p>
 </footer>
-
-<script>
-/* GAME LOGIC */
-const player = document.getElementById('player');
-const clickBtn = document.getElementById('clickBtn');
-const progressText = document.getElementById('progressText');
-const gate = document.getElementById('funGate');
-
-let progress = 0;
-const finish = 100;
-const moveAmount = 10;
-
-clickBtn.addEventListener('click', () => {
-  progress += moveAmount;
-  if(progress > finish) progress = finish;
-
-  // Move from left to right
-  player.style.left = (progress/finish)*(300-50) + 'px';
-
-  progressText.textContent = `Progress: ${progress}%`;
-
-  player.classList.add('animate');
-  setTimeout(() => player.classList.remove('animate'), 100);
-
-  if(progress >= finish){
-    gate.style.display = 'none';
-    alert('🎉 Thank You! Login Unlocked!');
-  }
-});
-</script>
 
 <script>
 function toggleMenu(){
