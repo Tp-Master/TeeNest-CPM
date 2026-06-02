@@ -234,36 +234,36 @@ h1, h2 {
 /* FOOTER */
 .footer { text-align: center; padding: 1.5rem 0; margin-top: 2rem; border-top: 1px solid #222; color: var(--color-muted); }
 
-
-.video-container {
-    display: flex;
-    justify-content: center;   /* horizontal center */
-    align-items: center;       /* vertical center (optional) */
-    width: 100%;
-    padding: 20px 0;
+/* Full width container with flex centering */
+.video-placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 90%;
 }
 
-.video-wrapper {
-    position: relative;
-    width: 90%;
-    max-width: 800px; /* controls max size */
-    padding-bottom: 56.25%; /* 16:9 ratio */
-    height: 0;
-}
-
-.video-wrapper iframe {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-
-.video-placeholder img {
-  width: 100%;
-  height: auto;
-  display: block;
+/* Style the button */
+.video-placeholder button {
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #cc0044;
+  border: none;
   border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.video-placeholder button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
 }
 
 </style>
