@@ -75,10 +75,13 @@ body {
 
 a {
   color: var(--color-primary);
-  text-decoration: none;
-  transition: 0.3s;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
-a:hover { color: var(--color-secondary); }
+
+a:hover {
+  color: var(--color-secondary);
+}
 
 .container {
   max-width: var(--max-width);
@@ -213,14 +216,12 @@ img {
   border-radius: 10px;
   margin: 15px 0;
 }
-a {
-  color: #ff0055;
-  text-decoration: none;
-}
+
+
 .button {
   display: inline-block;
   padding: 10px 15px;
-  background: #ff0055;
+  background: #cc0044;
   color: #fff;
   border-radius: 5px;
   margin: 10px 0;
@@ -229,11 +230,6 @@ a {
 h1, h2 {
   color: #00ffff;
 }
-
-.brand-sub { font-size: 0.8rem; color: var(--color-muted); }
-a { color: var(--color-primary); text-decoration: none; transition: 0.3s; }
-a:hover { color: var(--color-secondary); }
-.muted { color: var(--color-muted); }
 
 
 /* FOOTER */
@@ -269,6 +265,7 @@ a:hover { color: var(--color-secondary); }
 </head>
 <body>
 
+<main>
 <div class="container">
 
   <!-- HEADER -->
@@ -346,11 +343,12 @@ Watch the full tutorial below showing how to install Game Guardian and Virtual S
 
     <div class="video-container">
     <div class="video-wrapper">
-        <iframe 
-            src="https://www.youtube.com/embed/nexFmt29cdI"
-            frameborder="0"
-            allowfullscreen>
-        </iframe>
+       <iframe 
+    src="https://www.youtube.com/embed/nexFmt29cdI" 
+    frameborder="0" 
+    allowfullscreen 
+    title="Game Guardian and Virtual Space APKs for Android without root for Car Parking Multiplayer">
+</iframe>
     </div>
 </div>
 
@@ -589,6 +587,8 @@ Official Android Help Center
 }
 </style>
 
+</main>
+
 <script>
 document.querySelectorAll(".faq-question").forEach(question => {
     question.addEventListener("click", () => {
@@ -645,7 +645,7 @@ document.querySelectorAll(".faq-question").forEach(question => {
 
 <style>
   #floating-btn {
-    background: #ff0055; /* your new color */
+    background: #cc0044; /* your new color */
     color: #fff;          /* text color */
     border: none;
     border-radius: 50px;
