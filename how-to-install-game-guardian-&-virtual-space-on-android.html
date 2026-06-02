@@ -234,43 +234,36 @@ h1, h2 {
 /* FOOTER */
 .footer { text-align: center; padding: 1.5rem 0; margin-top: 2rem; border-top: 1px solid #222; color: var(--color-muted); }
 
-/* Full width container with flex centering */
-.video-placeholder {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin: 2rem auto;
-  max-width: 90%;
+
+.video-container {
+    display: flex;
+    justify-content: center;   /* horizontal center */
+    align-items: center;       /* vertical center (optional) */
+    width: 100%;
+    padding: 20px 0;
 }
 
-/* Make images responsive */
-.video-placeholder img,
-.video-placeholder iframe {
+.video-wrapper {
+    position: relative;
+    width: 90%;
+    max-width: 800px; /* controls max size */
+    padding-bottom: 56.25%; /* 16:9 ratio */
+    height: 0;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.video-placeholder img {
   width: 100%;
-  height: 628;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
-/* Style the button */
-.video-placeholder button {
-  margin-top: 1rem;
-  padding: 0.5rem 1.2rem;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #fff;
-  background-color: #cc0044;
-  border: none;
+  height: auto;
+  display: block;
   border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.video-placeholder button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 </style>
@@ -360,24 +353,24 @@ Download Modified Game Guardian APK
 Watch the full tutorial below showing how to install Game Guardian and Virtual Space on Android 14, Android 15 and Android 16 without root.
 </p>
 
-    <div class="video-container">
   <div class="video-placeholder">
   <img
     src="https://i.ytimg.com/vi/nexFmt29cdI/hqdefault.jpg"
     alt="TeenestCPM Video Thumbnail"
-    width="628"
+    width="480"
     height="360"
     loading="lazy">
   <button onclick="loadVideo()">▶ Play Video</button>
+  
 </div>
 </div>
 
 <script>
 function loadVideo() {
   document.querySelector('.video-placeholder').innerHTML =
-    '<iframe src="https://www.youtube-nocookie.com/embed/nexFmt29cdI?autoplay=1" title="TeenestCPM Video" width="628" height="360" frameborder="0" allowfullscreen loading="lazy"></iframe>';
+    '<iframe src="https://www.youtube-nocookie.com/embed/nexFmt29cdI?autoplay=1" title="TeenestCPM Video" width="480" height="360" frameborder="0" allowfullscreen loading="lazy"></iframe>';
 }
-</script>    
+</script>
 
 <h2 style="text-align:center;margin-bottom:40px;">What Is Game Guardian?</h2>
 
