@@ -268,6 +268,7 @@ ul {
 </head>
 <body>
 
+<main>
 <div class="container">
 
   <!-- HEADER -->
@@ -739,9 +740,11 @@ faqItems.forEach(item => {
   </div>
 </div>
 
+</main>
+        
 <style>
   #floating-btn {
-    background: #ff0055; /* your new color */
+    background: #cc0044; /* your new color */
     color: #fff;          /* text color */
     border: none;
     border-radius: 50px;
@@ -805,7 +808,7 @@ faqItems.forEach(item => {
    <p style="font-size:12px; color:#aaa;">&copy; 2026 CarParkingMultiplayer.co.za | All rights reserved</p>
   </footer>
   
-  <script>
+<script>
 function toggleMenu(){
 document.getElementById("nav").classList.toggle("open");
 }
@@ -820,6 +823,18 @@ btn.nextElementSibling.classList.toggle('open');
 });
 });
 </script>
+
+    <script>
+document.addEventListener("click", function(e) {
+  const nav = document.getElementById("nav");
+  const menuBtn = document.querySelector(".menu-btn");
+
+  // If click is NOT inside nav or button → close menu
+  if (!nav.contains(e.target) && !menuBtn.contains(e.target)) {
+    nav.classList.remove("open");
+  }
+});
+    </script>
 
 <script>
 /* ACCOUNT SYSTEM */
