@@ -343,11 +343,11 @@ Watch the full tutorial below showing how to install Game Guardian and Virtual S
 
     <div class="video-container">
     <div class="video-wrapper">
-       <iframe
-  src="https://www.youtube-nocookie.com/embed/nexFmt29cdI"
-  title="TeenestCPM Video"
-  loading="lazy"
-  allowfullscreen>
+       <iframe 
+    src="https://www.youtube.com/embed/nexFmt29cdI" 
+    frameborder="0" 
+    allowfullscreen 
+    title="Game Guardian and Virtual Space APKs for Android without root for Car Parking Multiplayer">
 </iframe>
     </div>
 </div>
@@ -708,42 +708,6 @@ document.querySelectorAll(".faq-question").forEach(question => {
     </p>
    <p style="font-size:12px; color:#aaa;">&copy; 2026 CarParkingMultiplayer.co.za | All rights reserved</p>
   </footer>
-
-<script>
-
-let loaded = 0;
-const batchSize = 5;
-const container = document.getElementById("accounts-container");
-
-function loadAccounts() {
-    for (let i = loaded; i < loaded + batchSize && i < accountsList.length; i++) {
-        const acc = accountsList[i];
-        const div = document.createElement("div");
-        div.className = "account-box";
-        div.innerHTML = `
-            <div class="email">📧 ${acc.email} </div>
-            <div class="password"><strong>Password:</strong> ${acc.password}</div>
-            <div class="password-btn" onclick="showPassword(this)">Show Password</div>
-        `;
-        container.appendChild(div);
-    }
-    loaded += batchSize;
-    if (loaded >= accountsList.length) {
-        document.getElementById("showMoreBtn").style.display = "none";
-    }
-}
-
-// Load first 5 on page load
-loadAccounts();
-
-// Show only one password at a time
-function showPassword(button) {
-    document.querySelectorAll('.password').forEach(p => p.style.display = 'none');
-    button.previousElementSibling.style.display = 'block';
-}
-
-document.getElementById("showMoreBtn").addEventListener("click", loadAccounts);
-</script>
 
 <script>
 function toggleMenu(){
