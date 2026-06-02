@@ -75,11 +75,14 @@ body {
 
 a {
   color: var(--color-primary);
-  text-decoration: none;
-  transition: 0.3s;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
-a:hover { color: var(--color-secondary); }
 
+a:hover {
+  color: var(--color-secondary);
+}
+    
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
